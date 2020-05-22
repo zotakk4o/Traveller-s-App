@@ -19,6 +19,34 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\DBCommandsProcessor\commands\AddColumnCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\AggregateCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\aggregate\BaseClasses\BaseAggregateCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\aggregate\MaximumCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\aggregate\MinimumCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\aggregate\ProductCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\aggregate\SumCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\BaseClasses\DBCommandValidator.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\BaseClasses\DBFileCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\BaseClasses\DBFileCommandParameters.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\CountCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\DeleteCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\DescribeCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\ExportCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\ImportCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\InnerJoinCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\InsertCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\PrintCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\RenameCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\SelectCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\ShowTablesCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\commands\UpdateCommand.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\config\DCPConfig.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\config\DCPErrors.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\config\DCPMessages.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\DBCommandsProcessor.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\FilesHandlers\DBFile.cpp" />
+    <ClCompile Include="include\DBCommandsProcessor\FilesHandlers\TableFile.cpp" />
     <ClCompile Include="include\File.cpp" />
     <ClCompile Include="include\FileCommandsProcessor\commands\BaseClasses\Command.cpp" />
     <ClCompile Include="include\FileCommandsProcessor\commands\BaseClasses\CommandValidator.cpp" />
@@ -35,6 +63,7 @@
     <ClCompile Include="include\FileCommandsProcessor\config\FCPMessages.cpp" />
     <ClCompile Include="include\FileCommandsProcessor\FileCommandsProcessor.cpp" />
     <ClCompile Include="include\Loggers\ConsoleLogger.cpp" />
+    <ClCompile Include="include\Loggers\FileLogger.cpp" />
     <ClCompile Include="include\Pagination\commands\BaseClasses\PaginationCommand.cpp" />
     <ClCompile Include="include\Pagination\commands\NextCommand.cpp" />
     <ClCompile Include="include\Pagination\commands\PrevCommand.cpp" />
@@ -47,6 +76,34 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\DBCommandsProcessor\commands\AddColumnCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\AggregateCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\aggregate\BaseClasses\BaseAggregateCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\aggregate\MaximumCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\aggregate\MinimumCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\aggregate\ProductCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\aggregate\SumCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\BaseClasses\DBCommandValidator.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\BaseClasses\DBFileCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\BaseClasses\DBFileCommandParameters.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\CountCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\DeleteCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\DescribeCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\ExportCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\ImportCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\InnerJoinCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\InsertCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\PrintCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\RenameCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\SelectCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\ShowTablesCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\commands\UpdateCommand.h" />
+    <ClInclude Include="include\DBCommandsProcessor\config\DCPConfig.h" />
+    <ClInclude Include="include\DBCommandsProcessor\config\DCPErrors.h" />
+    <ClInclude Include="include\DBCommandsProcessor\config\DCPMessages.h" />
+    <ClInclude Include="include\DBCommandsProcessor\DBCommandsProcessor.h" />
+    <ClInclude Include="include\DBCommandsProcessor\FilesHandlers\DBFile.h" />
+    <ClInclude Include="include\DBCommandsProcessor\FilesHandlers\TableFile.h" />
     <ClInclude Include="include\File.h" />
     <ClInclude Include="include\FileCommandsProcessor\commands\BaseClasses\Command.h" />
     <ClInclude Include="include\FileCommandsProcessor\commands\BaseClasses\CommandValidator.h" />
@@ -63,6 +120,7 @@
     <ClInclude Include="include\FileCommandsProcessor\config\FCPMessages.h" />
     <ClInclude Include="include\FileCommandsProcessor\FileCommandsProcessor.h" />
     <ClInclude Include="include\Loggers\ConsoleLogger.h" />
+    <ClInclude Include="include\Loggers\FileLogger.h" />
     <ClInclude Include="include\Loggers\interfaces\ILogger.h" />
     <ClInclude Include="include\Pagination\commands\BaseClasses\PaginationCommand.h" />
     <ClInclude Include="include\Pagination\commands\NextCommand.h" />
@@ -73,6 +131,9 @@
     <ClInclude Include="include\Pagination\Pagination.h" />
     <ClInclude Include="include\String.h" />
     <ClInclude Include="include\Vector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="logs\.gitignore" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -132,7 +193,10 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <ObjectFileName>$(IntDir)%(RelativeDir)\</ObjectFileName>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,7 +208,10 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <ObjectFileName>$(IntDir)%(RelativeDir)\</ObjectFileName>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -158,7 +225,10 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <ObjectFileName>$(IntDir)%(RelativeDir)\</ObjectFileName>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -174,7 +244,10 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <ObjectFileName>$(IntDir)%(RelativeDir)\</ObjectFileName>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
