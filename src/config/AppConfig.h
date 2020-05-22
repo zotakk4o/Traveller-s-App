@@ -7,7 +7,7 @@
 class AppConfig {
 	public:
 		static const ConsoleLogger& consoleLogger;
-		static const FileLogger& fileLogger;
+		static FileLogger fileLogger;
 };
 
 #endif
