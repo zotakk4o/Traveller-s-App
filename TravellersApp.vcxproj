@@ -19,6 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\Date.cpp" />
+    <ClCompile Include="src\config\AppConfig.cpp" />
+    <ClCompile Include="src\config\AppErrors.cpp" />
+    <ClCompile Include="src\config\AppMessages.cpp" />
+    <ClCompile Include="src\models\Friendship.cpp" />
     <ClCompile Include="include\DBCommandsProcessor\commands\AddColumnCommand.cpp" />
     <ClCompile Include="include\DBCommandsProcessor\commands\AggregateCommand.cpp" />
     <ClCompile Include="include\DBCommandsProcessor\commands\aggregate\BaseClasses\BaseAggregateCommand.cpp" />
@@ -74,8 +79,14 @@
     <ClCompile Include="include\String.cpp" />
     <ClCompile Include="include\Vector.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="src\models\User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Date.h" />
+    <ClInclude Include="src\config\AppConfig.h" />
+    <ClInclude Include="src\config\AppErrors.h" />
+    <ClInclude Include="src\config\AppMessages.h" />
+    <ClInclude Include="src\models\Friendship.h" />
     <ClInclude Include="include\DBCommandsProcessor\commands\AddColumnCommand.h" />
     <ClInclude Include="include\DBCommandsProcessor\commands\AggregateCommand.h" />
     <ClInclude Include="include\DBCommandsProcessor\commands\aggregate\BaseClasses\BaseAggregateCommand.h" />
@@ -131,6 +142,7 @@
     <ClInclude Include="include\Pagination\Pagination.h" />
     <ClInclude Include="include\String.h" />
     <ClInclude Include="include\Vector.h" />
+    <ClInclude Include="src\models\User.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="logs\.gitignore" />

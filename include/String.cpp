@@ -6,8 +6,6 @@
 #include<istream>
 #include <stdexcept>
 
-const char* String::noFreeMemErr = "Error: Could not create a string instance, no free memory!";
-
 String numToString(unsigned long long num) {
 	String res;
 
