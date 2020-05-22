@@ -388,7 +388,3 @@ MigrationBackup/
 *.exe
 *.out
 *.app
-
-# CUSTOM
-db-files/
-logs/
