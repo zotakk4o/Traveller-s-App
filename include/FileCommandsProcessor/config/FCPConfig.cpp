@@ -8,11 +8,8 @@
 #include "../commands/SaveCommand.h"
 
 #include "include/Loggers/ConsoleLogger.h"
-#include "include/Loggers/FileLogger.h"
 
 const char FCPConfig::commandDelimiter = ' ';
-
-ILogger& FCPConfig::logger = FileLogger::getInstance("logs/db.log");
 
 ConsoleLogger& FCPConfig::consoleLogger = ConsoleLogger::getInstance();
 
