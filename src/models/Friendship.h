@@ -11,8 +11,11 @@ class Friendship {
 		String currentUsername;
 		String otherUsername;
 	public:
+		Friendship();
 		Friendship(const String&, const String&);
-		User getOtherUser();
+		Friendship& operator=(const Friendship&);
+
+		User getOtherUser(const String&);
 };
 
 #endif

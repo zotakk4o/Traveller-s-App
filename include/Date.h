@@ -18,6 +18,7 @@ class Date {
 		Date(unsigned short day, unsigned short month, unsigned short year);
 		Date(const String& date);
 		Date(const Date&);
+
 		String toString() const;
 };
 
