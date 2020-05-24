@@ -10,6 +10,7 @@ class AppConfig {
 	public:
 		static const String defaultFilesLocation;
 		static const char vectorValuesDelimiter;
+		static const char fileDelimiter;
 		static const Vector<String> bannedStrings;
 		static const Vector<String> allowedImageExtensions;
 		static const Vector<unsigned short> gradeBoundaries;

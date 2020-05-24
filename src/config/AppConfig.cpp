@@ -10,11 +10,13 @@ const Vector<unsigned short> AppConfig::gradeBoundaries = {1, 5};
 
 const char AppConfig::vectorValuesDelimiter = '~';
 
+const char AppConfig::fileDelimiter = '⠀';
+
 const Vector<String> AppConfig::bannedStrings = { '⠀', AppConfig::vectorValuesDelimiter, "shit", "fuck" }; // the first element is not an empty space, used for text filtering
 
 FileLogger AppConfig::fileLogger{"logs/app.log"};
 
-DBFile AppConfig::mainDB{&AppConfig::fileLogger, AppConfig::defaultFilesLocation + "application.db"};
+DBFile AppConfig::mainDB{&AppConfig::fileLogger, AppConfig::defaultFilesLocation + "application.db", true};
 
 const String AppConfig::usersTable = AppConfig::defaultFilesLocation + "users.db";
 const String AppConfig::friendshipsTable = AppConfig::defaultFilesLocation + "friendships.db";
