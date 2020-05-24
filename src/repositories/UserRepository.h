@@ -5,15 +5,15 @@
 #include "../models/User.h"
 
 class UserRepository {
+	private:
+		static Vector<User> mapToUsers(const Vector<String>&);
 	public:
-		User getUser(const String&);
-		Vector<User> getAllUsers();
-		Vector<Excursion> getUserExcursions(const User&, const String& = "");
-
-		Vector<User> selectUsers(const Vector<String>&);	
-		void insertUser(const User&);
-		void updateUser(const User&);
-		void deleteUser(const User&);
+		static User getUser(const String&);
+		static Vector<User> getAllUsers();
+		static Vector<Excursion> getUserExcursions(const User&, const String& = "");
+		static Vector<User> selectUsers(const Vector<String>&);	
+		static void insertUser(const User&);
+		static void deleteUser(const User&);
 };
 
 #endif

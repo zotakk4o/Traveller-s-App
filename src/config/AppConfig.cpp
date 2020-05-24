@@ -18,8 +18,8 @@ FileLogger AppConfig::fileLogger{"logs/app.log"};
 
 DBFile AppConfig::mainDB{&AppConfig::fileLogger, AppConfig::defaultFilesLocation + "application.db", true};
 
-const String AppConfig::usersTable = AppConfig::defaultFilesLocation + "users.db";
-const String AppConfig::friendshipsTable = AppConfig::defaultFilesLocation + "friendships.db";
+const String AppConfig::usersTable = "users";
+const String AppConfig::friendshipsTable = "friendships";
 
 const String AppConfig::excursionTableConfig = "destination-STRING⠀firstDate-STRING⠀secondDate-STRING⠀grade-DOUBLE⠀comment-STRING⠀photos-STRING";
 

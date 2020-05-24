@@ -29,6 +29,7 @@ class User {
 
 		const String& getUsername() const;
 		const String& getEmail() const;
+		const String& getPassword() const;
 		const Vector<Excursion>& getAllExcursions() const;
 };
 

@@ -52,6 +52,10 @@ const String& User::getEmail() const {
 	return this->email;
 }
 
+const String& User::getPassword() const {
+	return this->password;
+}
+
 const Vector<Excursion>& User::getAllExcursions() const {
 	return this->excursions;
 }

@@ -1,18 +1,31 @@
 #include "UserRepository.h"
 #include "../config/AppConfig.h"
 
-User getUser(const String& username) {
-	Vector<String> row = AppConfig::mainDB.selectFromTable({AppConfig::usersTable, "username", username});
-
-	if (!row.getSize()) {
-		return User{};
-	}
-	Vector<String> data = row[0].split(AppConfig::fileDelimiter);
-	return User{ data[0], data[1], data[2]};
+User UserRepository::getUser(const String& username) {
+	return UserRepository::mapToUsers(AppConfig::mainDB.selectFromTable({ "username", username, AppConfig::usersTable }))[0];
 }
 
-Vector<User> getAllUsers() {
-	Vector<String> rows = AppConfig::mainDB.selectFromTable({ AppConfig::usersTable, "username", username });
+Vector<User> UserRepository::getAllUsers() {
+	return UserRepository::mapToUsers(AppConfig::mainDB.getTableWithName(AppConfig::usersTable).getTableData());
+}
+
+Vector<Excursion> UserRepository::getUserExcursions(const User&, const String & = "") {
+	//TODO
+}
+
+Vector<User> UserRepository::selectUsers(const Vector<String>& criteria) {
+	return UserRepository::mapToUsers(AppConfig::mainDB.selectFromTable({ criteria[0], criteria[1], AppConfig::usersTable }));
+}
+
+void UserRepository::insertUser(const User& user) {
+	AppConfig::mainDB.insertRow({ AppConfig::usersTable, user.getUsername(), user.getEmail(), user.getPassword() });
+}
+
+void UserRepository::deleteUser(const User& user) {
+	AppConfig::mainDB.deleteFromTable({ AppConfig::usersTable, "username", user.getUsername() });
+}
+
+Vector<User> UserRepository::mapToUsers(const Vector<String>& rows) {
 	if (!rows.getSize()) {
 		return Vector<User>{};
 	}
@@ -27,24 +40,4 @@ Vector<User> getAllUsers() {
 	}
 
 	return res;
-}
-
-Vector<Excursion> getUserExcursions(const User&, const String & = "") {
-
-}
-
-Vector<User> selectUsers(const Vector<String>&) {
-
-}
-
-void insertUser(const User&) {
-
-}
-
-void updateUser(const User&) {
-
-}
-
-void deleteUser(const User&) {
-
 }

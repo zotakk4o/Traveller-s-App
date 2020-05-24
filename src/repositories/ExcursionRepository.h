@@ -8,13 +8,14 @@
 class ExcursionRepository {
 	private:
 		User tableOwner;
+		Vector<Excursion> mapToExcursions(const Vector<String>&);
 	public:
+		ExcursionRepository(const User&);
 		Excursion getExcursion(const String&);
 		Vector<Excursion> getAllExcursions();
 
 		Vector<Excursion> selectExcursions(const Vector<String>&);
 		void insertExcursion(const Excursion&);
-		void updateExcursion(const Excursion&);
 		void deleteExcursion(const Excursion&);
 };
 
