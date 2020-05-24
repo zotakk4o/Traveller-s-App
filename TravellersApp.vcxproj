@@ -23,9 +23,8 @@
     <ClCompile Include="src\config\AppConfig.cpp" />
     <ClCompile Include="src\config\AppErrors.cpp" />
     <ClCompile Include="src\config\AppMessages.cpp" />
-    <ClCompile Include="src\models\App.cpp" />
+    <ClCompile Include="src\models\Destination.cpp" />
     <ClCompile Include="src\models\Excursion.cpp" />
-    <ClCompile Include="src\models\Friendship.cpp" />
     <ClCompile Include="include\DBCommandsProcessor\commands\AddColumnCommand.cpp" />
     <ClCompile Include="include\DBCommandsProcessor\commands\AggregateCommand.cpp" />
     <ClCompile Include="include\DBCommandsProcessor\commands\aggregate\BaseClasses\BaseAggregateCommand.cpp" />
@@ -88,9 +87,8 @@
     <ClInclude Include="src\config\AppConfig.h" />
     <ClInclude Include="src\config\AppErrors.h" />
     <ClInclude Include="src\config\AppMessages.h" />
-    <ClInclude Include="src\models\App.h" />
+    <ClInclude Include="src\models\Destination.h" />
     <ClInclude Include="src\models\Excursion.h" />
-    <ClInclude Include="src\models\Friendship.h" />
     <ClInclude Include="include\DBCommandsProcessor\commands\AddColumnCommand.h" />
     <ClInclude Include="include\DBCommandsProcessor\commands\AggregateCommand.h" />
     <ClInclude Include="include\DBCommandsProcessor\commands\aggregate\BaseClasses\BaseAggregateCommand.h" />

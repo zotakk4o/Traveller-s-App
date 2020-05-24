@@ -15,10 +15,11 @@ class Date {
 		static const char componentsDelimiter;
 		static const String formatExpected;
 
+		Date();
 		Date(unsigned short day, unsigned short month, unsigned short year);
 		Date(const String& date);
-		Date(const Date&);
 
+		bool isDateValid() const;
 		String toString() const;
 };
 

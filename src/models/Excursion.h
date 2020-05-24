@@ -6,7 +6,6 @@
 
 class Excursion {
 	private:
-		String tableName;
 		String destination;
 		Date firstDate;
 		Date secondDate;
@@ -16,15 +15,16 @@ class Excursion {
 
 	public:
 		Excursion();
-		Excursion(const String&, const String&, const Date&, const Date&, const unsigned short&, const String&, const Vector<String>&);
+		Excursion(const String&, const Date&, const Date&, const unsigned short&, const String&, const Vector<String>&);
 		Excursion& operator=(const Excursion&);
 
-		String getDestination() const;
-		Date getFirstDate() const;
-		Date getSecondDate() const;
-		unsigned short getGrade() const;
-		String getComment() const;
-		Vector<String> getPhotos() const;
+		void addPhoto(const String&);
+		const String& getDestination() const;
+		const Date& getFirstDate() const;
+		const Date& getSecondDate() const;
+		const unsigned short& getGrade() const;
+		const String& getComment() const;
+		const Vector<String>& getPhotos() const;
 };
 
 #endif

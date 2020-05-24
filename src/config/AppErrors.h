@@ -8,6 +8,13 @@ class AppErrors {
 		static const String invalidUsernameError;
 		static const String invalidPasswordError;
 		static const String invalidEmailError;
+		static const String invalidDestinationError;
+		static const String invalidImageExtensionError;
+		static const String invalidImageNameError;
+		static const String noDestinationFoundError;
+		static const String invalidDatePeriod;
+		static const String invalidGradeError;
+		static const String invalidCommentError;
 };
 
 #endif

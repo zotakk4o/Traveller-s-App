@@ -1,12 +1,13 @@
 #include "User.h"
 #include "../config/AppErrors.h"
+#include "../config/AppConfig.h"
 
 const unsigned short User::maxUsernameLegnth = 50;
 const unsigned short User::minPasswordLength = 5;
 User::User() {}
 
 User::User(const String& username, const String& email, const String& password) {
-	if (username.indexOf(' ') != -1 || username.getLength() > User::maxUsernameLegnth) {
+	if (!AppConfig::isTextValid(username) && username.indexOf(' ') != -1 || username.getLength() > User::maxUsernameLegnth) {
 		throw AppErrors::invalidUsernameError;
 	}
 
@@ -39,23 +40,19 @@ User& User::operator=(const User& other) {
 	return *this;
 }
 
-void User::addFriend(const User& other) {
-
+void User::addExcursion(const Excursion& excursion) {
+	this->excursions.pushBack(excursion);
 }
 
-void User::addExcursion(const Excursion&) {
-
-}
-
-String User::getUsername() const {
+const String& User::getUsername() const {
 	return this->username;
 }
 
-String User::getEmail() const {
+const String& User::getEmail() const {
 	return this->email;
 }
 
-Vector<Excursion> User::getAllExcursions() const {
+const Vector<Excursion>& User::getAllExcursions() const {
 	return this->excursions;
 }
 
@@ -70,27 +67,22 @@ bool User::isEmailValid(const String& email) const {
 		return false;
 	}
 
-	Vector<String> allowedSpecialSymbols = { '-', '.', '_' };
-
-	unsigned int emailSize = email.getLength();
-	for (unsigned int i = 0; i < emailSize; i++)
-	{
-		if ((i == 0 || i == emailSize - 1) && allowedSpecialSymbols.indexOf(email[i]) != -1) {
-			return false;
-		}
-
-		if (email[i] < 'a' && email[i] > 'z' && 
-			email[i] < 'A' && email[i] > 'Z' && 
-			email[i] < '0' && email[i] > '9' && 
-			allowedSpecialSymbols.indexOf(email[i]) == -1) {
-			return false;
-		}
-	}
-
-	return true;
+	return AppConfig::isTextValid(email, { '-', '.', '_' });
 }
 
 String User::hashPassword(const String& password) const {
 	unsigned short precision = 2;
 	return String::toString((*(unsigned long long*)password.getConstChar()) >> precision);
+}
+
+const Excursion& User::getExcursion(const String& destination) const {
+	unsigned int excursionsSize = this->excursions.getSize();
+	for (unsigned i = 0; i < excursionsSize; i++)
+	{
+		if (this->excursions[i].getDestination() == destination) {
+			return this->excursions[i];
+		}
+	}
+
+	throw AppErrors::noDestinationFoundError;
 }

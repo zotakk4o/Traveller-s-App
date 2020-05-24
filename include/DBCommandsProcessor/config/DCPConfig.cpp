@@ -1,4 +1,4 @@
-#include "DCPConfig.h"
+﻿#include "DCPConfig.h"
 #include "../commands/ExportCommand.h"
 #include "../commands/PrintCommand.h"
 #include "../commands/DescribeCommand.h"
@@ -22,7 +22,7 @@ const String DCPConfig::defaultFilesLocation = "db-files/";
 
 const char DCPConfig::commandDelimiter = ' ';
 
-const char DCPConfig::fileDelimiter = ',';
+const char DCPConfig::fileDelimiter = '⠀'; // not an empty space
 
 const char DCPConfig::columnConfigDelimiter = '-';
 

@@ -5,6 +5,8 @@ const unsigned short Date::minimumYear = 1900;
 const char Date::componentsDelimiter = '.';
 const String Date::formatExpected = "<day>.<month>.<year>";
 
+Date::Date() : day(-1), month(-1), year(-1) {}
+
 Date::Date(unsigned short day, unsigned short month, unsigned short year) {
 	if (!Date::isValid(day, month, year)) {
 		throw std::invalid_argument("Error: invalid arguments. Could not create a date from the entered day, month and year.");
@@ -37,8 +39,6 @@ Date::Date(const String& date) {
 	this->year = year;
 }
 
-Date::Date(const Date& other) : day(other.day), month(other.month), year(other.year){}
-
 String Date::toString() const {
 	String res;
 
@@ -64,4 +64,8 @@ bool Date::isValid(unsigned short day, unsigned short month, unsigned short year
 	Vector<unsigned short> daysPerMonth = {0, 31, febDays, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 	return (month >= 1 && month <= 12) && (day >= 1 && day <= daysPerMonth[month]) && (year >= Date::minimumYear);
+}
+
+bool Date::isDateValid() const {
+	return this->isValid(this->day, this->month, this->year);
 }
