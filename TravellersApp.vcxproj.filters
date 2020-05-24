@@ -201,6 +201,18 @@
     <ClCompile Include="src\models\Destination.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\repositories\DestinationRepository.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\repositories\ExcursionRepository.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\repositories\UserRepository.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\repositories\FriendshipRepository.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\DBCommandsProcessor\commands\aggregate\BaseClasses\BaseAggregateCommand.h">
@@ -389,8 +401,23 @@
     <ClInclude Include="src\models\Destination.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\repositories\DestinationRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\repositories\ExcursionRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\repositories\UserRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\repositories\FriendshipRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="logs\.gitignore" />
+    <None Include="db-files\application.db" />
+    <None Include="db-files\users.db" />
+    <None Include="db-files\friendships.db" />
   </ItemGroup>
 </Project>

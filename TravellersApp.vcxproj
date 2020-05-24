@@ -81,6 +81,10 @@
     <ClCompile Include="include\Vector.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="src\models\User.cpp" />
+    <ClCompile Include="src\repositories\DestinationRepository.cpp" />
+    <ClCompile Include="src\repositories\ExcursionRepository.cpp" />
+    <ClCompile Include="src\repositories\FriendshipRepository.cpp" />
+    <ClCompile Include="src\repositories\UserRepository.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Date.h" />
@@ -145,8 +149,15 @@
     <ClInclude Include="include\String.h" />
     <ClInclude Include="include\Vector.h" />
     <ClInclude Include="src\models\User.h" />
+    <ClInclude Include="src\repositories\DestinationRepository.h" />
+    <ClInclude Include="src\repositories\ExcursionRepository.h" />
+    <ClInclude Include="src\repositories\FriendshipRepository.h" />
+    <ClInclude Include="src\repositories\UserRepository.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="db-files\application.db" />
+    <None Include="db-files\friendships.db" />
+    <None Include="db-files\users.db" />
     <None Include="logs\.gitignore" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

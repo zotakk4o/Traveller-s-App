@@ -43,6 +43,8 @@ Excursion& Excursion::operator=(const Excursion& other) {
 		this->comment = other.comment;
 		this->photos = other.photos;
 	}
+
+	return *this;
 }
 
 const String& Excursion::getDestination() const {

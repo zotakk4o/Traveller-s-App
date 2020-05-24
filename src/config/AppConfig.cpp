@@ -14,6 +14,13 @@ const Vector<String> AppConfig::bannedStrings = { '⠀', AppConfig::vectorValues
 
 FileLogger AppConfig::fileLogger{"logs/app.log"};
 
+DBFile AppConfig::mainDB{&AppConfig::fileLogger, AppConfig::defaultFilesLocation + "application.db"};
+
+const String AppConfig::usersTable = AppConfig::defaultFilesLocation + "users.db";
+const String AppConfig::friendshipsTable = AppConfig::defaultFilesLocation + "friendships.db";
+
+const String AppConfig::excursionTableConfig = "destination-STRING⠀firstDate-STRING⠀secondDate-STRING⠀grade-DOUBLE⠀comment-STRING⠀photos-STRING";
+
 bool AppConfig::isTextValid(const String& text, const Vector<String>& allowedSpecialSymbols, const Vector<String>& userBannedStrings) {
 	if (AppConfig::areBannedFound(text)) {
 		return false;
