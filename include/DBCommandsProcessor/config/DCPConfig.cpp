@@ -1,4 +1,4 @@
-﻿#include "DCPConfig.h"
+#include "DCPConfig.h"
 #include "../commands/ExportCommand.h"
 #include "../commands/PrintCommand.h"
 #include "../commands/DescribeCommand.h"
@@ -18,19 +18,19 @@
 #include "../commands/aggregate/ProductCommand.h"
 #include "../commands/aggregate/SumCommand.h"
 
-const String DCPConfig::defaultFilesLocation = "db-files/";
+const String DCPConfig::defaultFilesLocation = "db-files\\";
 
 const char DCPConfig::commandDelimiter = ' ';
 
-const char DCPConfig::fileDelimiter = '⠀'; // not an empty space
+const char DCPConfig::fileDelimiter = ',';
 
 const char DCPConfig::columnConfigDelimiter = '-';
 
 const unsigned short DCPConfig::perPageEntries = 5;
 
-const String DCPConfig::tableFileExtension = ".db";
+const String DCPConfig::tableFileExtension = ".csv";
 
-const String DCPConfig::dbFileExtension = ".db";
+const String DCPConfig::dbFileExtension = ".csv";
 
 const String DCPConfig::nullValue = "NULL";
 
@@ -45,7 +45,7 @@ const Vector<String> DCPConfig::fileExtensions{ DCPConfig::tableFileExtension };
 std::istream& DCPConfig::inputStream = std::cin;
 
 ConsoleLogger& DCPConfig::consoleLogger = ConsoleLogger::getInstance();
-FileLogger DCPConfig::fileLogger{"include/DBCommandsProcessor/logs/debug_file_commands.log"};
+FileLogger DCPConfig::fileLogger{"src/logs/debug_file_commands.log"};
 
 const Vector<DBFileCommand*> DCPConfig::dbCommands{
 	new ShowTablesCommand()
@@ -73,3 +73,23 @@ const Vector<BaseAggregateCommand*> DCPConfig::aggregateCommands{
 	new MaximumCommand(),
 	new MinimumCommand()
 };
+
+DCPConfig::~DCPConfig() {
+	unsigned int dbCommandsSize = DCPConfig::dbCommands.getSize();
+	for (unsigned int i = 0; i < dbCommandsSize; i++)
+	{
+		delete DCPConfig::dbCommands[i];
+	}
+
+	unsigned int dbCommandsParametersSize = DCPConfig::dbCommandsParameters.getSize();
+	for (unsigned int i = 0; i < dbCommandsParametersSize; i++)
+	{
+		delete DCPConfig::dbCommandsParameters[i];
+	}
+
+	unsigned int aggregateCommandsSize = DCPConfig::aggregateCommands.getSize();
+	for (unsigned int i = 0; i < aggregateCommandsSize; i++)
+	{
+		delete DCPConfig::aggregateCommands[i];
+	}
+}

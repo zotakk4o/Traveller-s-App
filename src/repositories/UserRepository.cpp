@@ -9,7 +9,7 @@ Vector<User> UserRepository::getAllUsers() {
 	return UserRepository::mapToUsers(AppConfig::mainDB.getTableWithName(AppConfig::usersTable).getTableData());
 }
 
-Vector<Excursion> UserRepository::getUserExcursions(const User&, const String & = "") {
+Vector<Excursion> UserRepository::getUserExcursions(const User&, const String &) {
 	//TODO
 }
 
