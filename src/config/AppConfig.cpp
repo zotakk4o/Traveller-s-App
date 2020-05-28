@@ -2,7 +2,7 @@
 
 const String AppConfig::defaultFilesLocation = "db-files/";
 
-const ConsoleLogger& AppConfig::consoleLogger = ConsoleLogger::getInstance();
+ConsoleLogger& AppConfig::consoleLogger = ConsoleLogger::getInstance();
 
 const Vector<String> AppConfig::allowedImageExtensions = {".jpeg", "png"};
 

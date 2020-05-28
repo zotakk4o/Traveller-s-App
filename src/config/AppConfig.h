@@ -14,7 +14,7 @@ class AppConfig {
 		static const Vector<String> bannedStrings;
 		static const Vector<String> allowedImageExtensions;
 		static const Vector<unsigned short> gradeBoundaries;
-		static const ConsoleLogger& consoleLogger;
+		static ConsoleLogger& consoleLogger;
 		static FileLogger fileLogger;
 		static DBFile mainDB;
 		static const String usersTable;

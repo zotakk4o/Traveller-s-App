@@ -9,5 +9,5 @@ const String AppErrors::invalidImageExtensionError = "Error: the format of the i
 const String AppErrors::invalidImageNameError = "Error: the image name you entered contains characters that are not allowed!";
 const String AppErrors::noDestinationFoundError = "Error: no destination found for the criteria you entered!";
 const String AppErrors::invalidDatePeriod = "Error: invalid date period!";
-const String AppErrors::invalidGradeError = String{ "Error: grade must be between " } +AppConfig::gradeBoundaries[0] + " and " + AppConfig::gradeBoundaries[1] + "!";
+const String AppErrors::invalidGradeError = String{ "Error: grade must be between " } +String::toString(AppConfig::gradeBoundaries[0]) + " and " + String::toString(AppConfig::gradeBoundaries[1]) +"!";
 const String AppErrors::invalidCommentError = "Error: the comment you wanted to make contains characters that are not allowed or words that are offensive!";

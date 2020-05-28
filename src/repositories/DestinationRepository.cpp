@@ -4,15 +4,18 @@
 
 
 Destination DestinationRepository::getDestination(const String& destination) {
-
+	return Destination{};
+	//TODO
 }
 
 Vector<Destination> DestinationRepository::getAllDestinations() {
-
+	return {};
+	//TODO
 }
 
 Vector<Destination> DestinationRepository::selectDestinations(const Vector<String>& criteria) {
-
+	return {};
+	//TODO
 }
 
 void DestinationRepository::insertDestination(const Destination&) {

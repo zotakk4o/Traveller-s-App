@@ -10,6 +10,7 @@ Vector<User> UserRepository::getAllUsers() {
 }
 
 Vector<Excursion> UserRepository::getUserExcursions(const User&, const String &) {
+	return {};
 	//TODO
 }
 
