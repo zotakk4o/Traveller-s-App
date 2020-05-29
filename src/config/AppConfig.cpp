@@ -2,17 +2,19 @@
 
 const String AppConfig::defaultFilesLocation = "db-files/";
 
+const String AppConfig::dbFileExtension = ".db";
+
 ConsoleLogger& AppConfig::consoleLogger = ConsoleLogger::getInstance();
 
 const Vector<String> AppConfig::allowedImageExtensions = {".jpeg", "png"};
 
 const Vector<unsigned short> AppConfig::gradeBoundaries = {1, 5};
 
-const char AppConfig::vectorValuesDelimiter = '~';
+const char AppConfig::vectorValuesDelimiter = '|';
 
-const char AppConfig::fileDelimiter = '⠀';
+const char AppConfig::fileDelimiter = '\t';
 
-const Vector<String> AppConfig::bannedStrings = { '⠀', AppConfig::vectorValuesDelimiter, "shit", "fuck" }; // the first element is not an empty space, used for text filtering
+const Vector<String> AppConfig::bannedStrings = { AppConfig::fileDelimiter, AppConfig::vectorValuesDelimiter, "shit", "fuck" }; // the first element is not an empty space, used for text filtering
 
 FileLogger AppConfig::fileLogger{"logs/app.log"};
 
@@ -20,6 +22,7 @@ DBFile AppConfig::mainDB{&AppConfig::fileLogger, AppConfig::defaultFilesLocation
 
 const String AppConfig::usersTable = "users";
 const String AppConfig::friendshipsTable = "friendships";
+const String AppConfig::destinationsTable = "destinations";
 
 const String AppConfig::excursionTableConfig = "destination-STRING⠀firstDate-STRING⠀secondDate-STRING⠀grade-DOUBLE⠀comment-STRING⠀photos-STRING";
 

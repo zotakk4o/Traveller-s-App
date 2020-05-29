@@ -1,2 +1,3 @@
-﻿users⠀db-files/users.db
-friendships db-files/friendships.db
+users	db-files/users.db
+friendships	db-files/friendships.db
+destinations	db-files/destinations.db

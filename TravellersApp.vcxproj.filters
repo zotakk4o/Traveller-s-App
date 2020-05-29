@@ -416,8 +416,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="logs\.gitignore" />
-    <None Include="db-files\application.db" />
     <None Include="db-files\users.db" />
     <None Include="db-files\friendships.db" />
+    <None Include="db-files\destinations.db" />
+    <None Include="db-files\application.db" />
   </ItemGroup>
 </Project>

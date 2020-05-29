@@ -17,7 +17,7 @@ Excursion::Excursion(const String& destination, const Date& firstDate, const Dat
 		throw AppErrors::invalidGradeError;
 	}
 
-	if (!AppConfig::areBannedFound(comment)) {
+	if (AppConfig::areBannedFound(comment)) {
 		throw AppErrors::invalidCommentError;
 	}
 
@@ -78,7 +78,6 @@ void Excursion::addPhoto(const String& filename) {
 	for (unsigned int i = 0; i < extensionsSize; i++)
 	{
 		index = filename.indexOf(AppConfig::allowedImageExtensions[i]);
-
 		if (index != -1 && AppConfig::allowedImageExtensions[i].getLength() + index == filename.getLength()) {
 			wasExtensionMatched = true;
 			break;
@@ -89,7 +88,7 @@ void Excursion::addPhoto(const String& filename) {
 		throw AppErrors::invalidImageExtensionError;
 	}
 
-	if (!AppConfig::isTextValid(filename, { '_' })) {
+	if (!AppConfig::isTextValid(filename, { '_', '-' })) {
 		throw AppErrors::invalidImageNameError;
 	}
 

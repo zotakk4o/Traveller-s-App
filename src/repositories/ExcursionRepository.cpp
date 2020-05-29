@@ -17,7 +17,8 @@ Vector<Excursion> ExcursionRepository::selectExcursions(const Vector<String>& cr
 }
 
 void ExcursionRepository::insertExcursion(const Excursion& excursion) {
-	AppConfig::mainDB.insertRow({ this->tableOwner.getUsername(), 
+	AppConfig::mainDB.insertRow({ 
+		this->tableOwner.getUsername(), 
 		excursion.getDestination(),
 		excursion.getFirstDate().toString(),
 		excursion.getSecondDate().toString(),
@@ -25,10 +26,15 @@ void ExcursionRepository::insertExcursion(const Excursion& excursion) {
 		excursion.getComment(),
 		String::join(excursion.getPhotos(), AppConfig::vectorValuesDelimiter)
 	});
+	AppConfig::mainDB.save();
 }
 
 void ExcursionRepository::deleteExcursion(const Excursion& excursion) {
-	AppConfig::mainDB.deleteFromTable({this->tableOwner.getUsername(), "destination", excursion.getDestination()});
+	AppConfig::mainDB.deleteFromTable({
+		this->tableOwner.getUsername(),
+		"destination", excursion.getDestination()
+	});
+	AppConfig::mainDB.save();
 }
 
 Vector<Excursion> ExcursionRepository::mapToExcursions(const Vector<String>& rows) {

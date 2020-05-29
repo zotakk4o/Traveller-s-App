@@ -1,4 +1,4 @@
-#include "DCPConfig.h"
+﻿#include "DCPConfig.h"
 #include "../commands/ExportCommand.h"
 #include "../commands/PrintCommand.h"
 #include "../commands/DescribeCommand.h"
@@ -18,19 +18,19 @@
 #include "../commands/aggregate/ProductCommand.h"
 #include "../commands/aggregate/SumCommand.h"
 
-const String DCPConfig::defaultFilesLocation = "db-files\\";
+const String DCPConfig::defaultFilesLocation = "db-files/";
 
 const char DCPConfig::commandDelimiter = ' ';
 
-const char DCPConfig::fileDelimiter = ',';
+const char DCPConfig::fileDelimiter = '\t';
 
 const char DCPConfig::columnConfigDelimiter = '-';
 
 const unsigned short DCPConfig::perPageEntries = 5;
 
-const String DCPConfig::tableFileExtension = ".csv";
+const String DCPConfig::tableFileExtension = ".db";
 
-const String DCPConfig::dbFileExtension = ".csv";
+const String DCPConfig::dbFileExtension = ".db";
 
 const String DCPConfig::nullValue = "NULL";
 

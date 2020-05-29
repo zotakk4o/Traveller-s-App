@@ -9,6 +9,7 @@
 class AppConfig {
 	public:
 		static const String defaultFilesLocation;
+		static const String dbFileExtension;
 		static const char vectorValuesDelimiter;
 		static const char fileDelimiter;
 		static const Vector<String> bannedStrings;
@@ -20,6 +21,7 @@ class AppConfig {
 		static const String usersTable;
 		static const String friendshipsTable;
 		static const String excursionTableConfig;
+		static const String destinationsTable;
 
 		static bool isTextValid(const String& name, const Vector<String>& allowedSpecialSymbols = {}, const Vector<String>& userBannedStrings = {});
 		static bool areBannedFound(const String&);

@@ -7,7 +7,7 @@ const unsigned short User::minPasswordLength = 5;
 User::User() {}
 
 User::User(const String& username, const String& email, const String& password) {
-	if (!AppConfig::isTextValid(username) && username.indexOf(' ') != -1 || username.getLength() > User::maxUsernameLegnth) {
+	if (!AppConfig::isTextValid(username) || username.indexOf(' ') != -1 || username.getLength() > User::maxUsernameLegnth) {
 		throw AppErrors::invalidUsernameError;
 	}
 
@@ -66,8 +66,9 @@ bool User::arePasswordsTheSame(const String& pass) const {
 
 bool User::isEmailValid(const String& email) const {
 	int atIndex = email.indexOf('@');
-	
-	if (atIndex == -1 || atIndex == 0 || atIndex == email.getLength() - 1) {
+	int lastDotIndex = email.getLength() - email.reverse().indexOf('.') - 1;
+
+	if (atIndex == -1 || atIndex == 0 || atIndex == email.getLength() - 1 || lastDotIndex <= atIndex + 1) {
 		return false;
 	}
 
