@@ -1,4 +1,21 @@
 ﻿#include "AppConfig.h"
+#include <iostream>
+#include<conio.h>
+#include "../commands/AddExcursion.h"
+#include "../commands/AddFriendCommand.h"
+#include "../commands/GetExcursionGradeCommand.h"
+#include "../commands/GetFriendsExcursionsCommand.h"
+#include "../commands/LoginCommand.h"
+#include "../commands/RegisterCommand.h"
+#include "../commands/RemoveExcursion.h"
+#include "../commands/RemoveFriendCommand.h"
+#include "../commands/AppExitCommand.h"
+
+const String AppConfig::cancelCommand = "cancel";
+
+std::istream& AppConfig::inputStream = std::cin;
+
+const char AppConfig::commandDelimiter = ' ';
 
 const String AppConfig::defaultFilesLocation = "db-files/";
 
@@ -24,7 +41,23 @@ const String AppConfig::usersTable = "users";
 const String AppConfig::friendshipsTable = "friendships";
 const String AppConfig::destinationsTable = "destinations";
 
-const String AppConfig::excursionTableConfig = "destination-STRING⠀firstDate-STRING⠀secondDate-STRING⠀grade-DOUBLE⠀comment-STRING⠀photos-STRING";
+const Vector<String> AppConfig::excursionTableConfig = {
+	"destination", "STRING",
+	"firstDate", "STRING",
+	"secondDate", "STRING",
+	"grade", "DOUBLE",
+	"comment", "STRING",
+	"photos", "STRING"
+};
+
+const LoginCommand* AppConfig::loginCommand = new LoginCommand();
+
+const Vector<AppCommand*> AppConfig::appCommands{
+	new AppExitCommand(),
+	new RegisterCommand()
+};
+
+const Vector<AppCommandParameters*> AppConfig::appCommandsParameters{};
 
 bool AppConfig::isTextValid(const String& text, const Vector<String>& allowedSpecialSymbols, const Vector<String>& userBannedStrings) {
 	if (AppConfig::areBannedFound(text)) {
@@ -46,9 +79,9 @@ bool AppConfig::isTextValid(const String& text, const Vector<String>& allowedSpe
 			return false;
 		}
 
-		if (text[i] < 'a' && text[i] > 'z' &&
-			text[i] < 'A' && text[i] > 'Z' &&
-			text[i] < '0' && text[i] > '9' &&
+		if ((text[i] < 'a' || text[i] > 'z') &&
+			(text[i] < 'A' || text[i] > 'Z') &&
+			(text[i] < '0' || text[i] > '9') &&
 			allowedSpecialSymbols.indexOf(text[i]) == -1) {
 			return false;
 		}
@@ -67,4 +100,36 @@ bool AppConfig::areBannedFound(const String& text) {
 	}
 
 	return false;
+}
+
+void AppConfig::readPassword(String& command) {
+	char character;
+	while (true) {
+		character = _getch();
+
+		if (character == '\n' || character == '\r\n' || character == '\r') {
+			_putch('\n');
+			break;
+		}
+
+		_putch('*');
+
+		command += character;
+	}
+}
+
+AppConfig::~AppConfig() {
+	delete AppConfig::loginCommand;
+
+	unsigned int appCommandsSize = AppConfig::appCommands.getSize();
+	for (unsigned int i = 0; i < appCommandsSize; i++)
+	{
+		delete AppConfig::appCommands[i];
+	}
+
+	unsigned int appCommandsParametersSize = AppConfig::appCommandsParameters.getSize();
+	for (unsigned int i = 0; i < appCommandsParametersSize; i++)
+	{
+		delete AppConfig::appCommandsParameters[i];
+	}
 }

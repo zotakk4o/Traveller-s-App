@@ -5,6 +5,7 @@
 
 class AppErrors {
 	public:
+		static const String wrongCommandError;
 		static const String invalidUsernameError;
 		static const String invalidPasswordError;
 		static const String invalidEmailError;
@@ -15,6 +16,7 @@ class AppErrors {
 		static const String invalidDatePeriod;
 		static const String invalidGradeError;
 		static const String invalidCommentError;
+		static const String userAlreadyExists;
 };
 
 #endif

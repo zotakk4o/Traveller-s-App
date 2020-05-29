@@ -20,6 +20,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\Date.cpp" />
+    <ClCompile Include="include\Pagination\commands\BaseClasses\PaginationCommand.cpp" />
+    <ClCompile Include="src\AppCommandsProcessor.cpp" />
+    <ClCompile Include="src\commands\AddExcursion.cpp" />
+    <ClCompile Include="src\commands\AddFriendCommand.cpp" />
+    <ClCompile Include="src\commands\AppExitCommand.cpp" />
+    <ClCompile Include="src\commands\BaseClasses\AppCommand.cpp" />
+    <ClCompile Include="src\commands\BaseClasses\AppCommandParameters.cpp" />
+    <ClCompile Include="src\commands\BaseClasses\AppCommandValidator.cpp" />
+    <ClCompile Include="src\commands\GetExcursionGradeCommand.cpp" />
+    <ClCompile Include="src\commands\GetFriendsExcursionsCommand.cpp" />
+    <ClCompile Include="src\commands\LoginCommand.cpp" />
+    <ClCompile Include="src\commands\RegisterCommand.cpp" />
+    <ClCompile Include="src\commands\RemoveExcursion.cpp" />
+    <ClCompile Include="src\commands\RemoveFriendCommand.cpp" />
     <ClCompile Include="src\config\AppConfig.cpp" />
     <ClCompile Include="src\config\AppErrors.cpp" />
     <ClCompile Include="src\config\AppMessages.cpp" />
@@ -70,7 +84,6 @@
     <ClCompile Include="include\FileCommandsProcessor\FileCommandsProcessor.cpp" />
     <ClCompile Include="include\Loggers\ConsoleLogger.cpp" />
     <ClCompile Include="include\Loggers\FileLogger.cpp" />
-    <ClCompile Include="include\Pagination\commands\BaseClasses\PaginationCommand.cpp" />
     <ClCompile Include="include\Pagination\commands\NextCommand.cpp" />
     <ClCompile Include="include\Pagination\commands\PrevCommand.cpp" />
     <ClCompile Include="include\Pagination\config\PaginationConfig.cpp" />
@@ -88,6 +101,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Date.h" />
+    <ClInclude Include="include\Pagination\commands\BaseClasses\PaginationCommand.h" />
+    <ClInclude Include="src\AppCommandsProcessor.h" />
+    <ClInclude Include="src\commands\AddExcursion.h" />
+    <ClInclude Include="src\commands\AddFriendCommand.h" />
+    <ClInclude Include="src\commands\AppExitCommand.h" />
+    <ClInclude Include="src\commands\BaseClasses\AppCommand.h" />
+    <ClInclude Include="src\commands\BaseClasses\AppCommandParameters.h" />
+    <ClInclude Include="src\commands\BaseClasses\AppCommandValidator.h" />
+    <ClInclude Include="src\commands\GetExcursionGradeCommand.h" />
+    <ClInclude Include="src\commands\GetFriendsExcursionsCommand.h" />
+    <ClInclude Include="src\commands\LoginCommand.h" />
+    <ClInclude Include="src\commands\RegisterCommand.h" />
+    <ClInclude Include="src\commands\RemoveExcursion.h" />
+    <ClInclude Include="src\commands\RemoveFriendCommand.h" />
     <ClInclude Include="src\config\AppConfig.h" />
     <ClInclude Include="src\config\AppErrors.h" />
     <ClInclude Include="src\config\AppMessages.h" />
@@ -139,7 +166,6 @@
     <ClInclude Include="include\Loggers\ConsoleLogger.h" />
     <ClInclude Include="include\Loggers\FileLogger.h" />
     <ClInclude Include="include\Loggers\interfaces\ILogger.h" />
-    <ClInclude Include="include\Pagination\commands\BaseClasses\PaginationCommand.h" />
     <ClInclude Include="include\Pagination\commands\NextCommand.h" />
     <ClInclude Include="include\Pagination\commands\PrevCommand.h" />
     <ClInclude Include="include\Pagination\config\PaginationConfig.h" />

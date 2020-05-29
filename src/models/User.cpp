@@ -4,9 +4,9 @@
 
 const unsigned short User::maxUsernameLegnth = 50;
 const unsigned short User::minPasswordLength = 5;
-User::User() {}
+User::User() : username(""), email(""), password("") {}
 
-User::User(const String& username, const String& email, const String& password) {
+User::User(const String& username, const String& email, const String& password, bool withoutHashing) {
 	if (!AppConfig::isTextValid(username) || username.indexOf(' ') != -1 || username.getLength() > User::maxUsernameLegnth) {
 		throw AppErrors::invalidUsernameError;
 	}
@@ -21,7 +21,7 @@ User::User(const String& username, const String& email, const String& password) 
 
 	this->username = username;
 	this->email = email;
-	this->password = this->hashPassword(password);
+	this->password = withoutHashing ? password : this->hashPassword(password);
 }
 
 User& User::operator=(const User& other) {
@@ -35,7 +35,7 @@ User& User::operator=(const User& other) {
 
 	this->username = other.username;
 	this->email = other.email;
-	this->password;
+	this->password = other.password;
 
 	return *this;
 }
@@ -68,11 +68,13 @@ bool User::isEmailValid(const String& email) const {
 	int atIndex = email.indexOf('@');
 	int lastDotIndex = email.getLength() - email.reverse().indexOf('.') - 1;
 
-	if (atIndex == -1 || atIndex == 0 || atIndex == email.getLength() - 1 || lastDotIndex <= atIndex + 1) {
+	if (atIndex == -1 
+		|| lastDotIndex <= atIndex + 1
+		|| email.split('@').getSize() != 2) {
 		return false;
 	}
 
-	return AppConfig::isTextValid(email, { '-', '.', '_' });
+	return AppConfig::isTextValid(email, { '-', '.', '_', '@' });
 }
 
 String User::hashPassword(const String& password) const {

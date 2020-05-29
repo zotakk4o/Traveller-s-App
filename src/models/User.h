@@ -17,11 +17,10 @@ class User {
 		Vector<Excursion> excursions;
 
 		bool isEmailValid(const String&) const;
-		bool arePasswordsTheSame(const String&) const;
 		String hashPassword(const String&) const;
 	public:
 		User();
-		User(const String& username, const String& email, const String& password);
+		User(const String& username, const String& email, const String& password, bool withoutHashing = false);
 		User& operator=(const User&);
 
 		void addExcursion(const Excursion&);
@@ -31,6 +30,8 @@ class User {
 		const String& getEmail() const;
 		const String& getPassword() const;
 		const Vector<Excursion>& getAllExcursions() const;
+
+		bool arePasswordsTheSame(const String&) const;
 };
 
 #endif

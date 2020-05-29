@@ -4,12 +4,14 @@
 
 
 Destination DestinationRepository::getDestination(const String& destination) {
-	return DestinationRepository::mapToDestinations(
+	Vector<Destination> res = DestinationRepository::mapToDestinations(
 		AppConfig::mainDB.selectFromTable({
 			"destination", destination, 
 			AppConfig::destinationsTable 
 		})
-	)[0];
+	);
+
+	return res.getSize() > 0 ? res[0] : Destination{};
 }
 
 Vector<Destination> DestinationRepository::getAllDestinations() {

@@ -5,7 +5,7 @@
 Vector<User> FriendshipRepository::selectFriendships(const User& user) {
 	return FriendshipRepository::mapToFriends(
 		user.getUsername(),
-		AppConfig::mainDB.selectFromTable({"first", user.getUsername(), "second", user.getUsername()}, "OR", true)
+		AppConfig::mainDB.selectFromTable({"first", user.getUsername(), "second", user.getUsername()}, "OR")
 	);
 }
 

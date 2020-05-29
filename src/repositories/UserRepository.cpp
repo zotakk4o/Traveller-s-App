@@ -1,9 +1,11 @@
 #include "UserRepository.h"
 #include "ExcursionRepository.h"
 #include "../config/AppConfig.h"
+#include "include/DBCommandsProcessor/FilesHandlers/TableFile.h"
 
 User UserRepository::getUser(const String& username) {
-	return UserRepository::mapToUsers(AppConfig::mainDB.selectFromTable({ "username", username, AppConfig::usersTable }))[0];
+	Vector<User> res = UserRepository::mapToUsers(AppConfig::mainDB.selectFromTable({ "username", username, AppConfig::usersTable }));
+	return res.getSize() > 0 ? res[0] : User{};
 }
 
 Vector<User> UserRepository::getAllUsers() {
@@ -29,6 +31,21 @@ Vector<User> UserRepository::selectUsers(const Vector<String>& criteria) {
 
 void UserRepository::insertUser(const User& user) {
 	AppConfig::mainDB.insertRow({ AppConfig::usersTable, user.getUsername(), user.getEmail(), user.getPassword() });
+	AppConfig::mainDB.addTableToData({ 
+		&AppConfig::fileLogger,
+		user.getUsername(),
+		AppConfig::defaultFilesLocation + user.getUsername() + AppConfig::dbFileExtension,
+		true
+	});
+
+	TableFile& newTable = AppConfig::mainDB.getTableWithName(user.getUsername());
+
+	unsigned int defaultConfigsSize = AppConfig::excursionTableConfig.getSize();
+	for (unsigned int i = 0; i < defaultConfigsSize; i += 2)
+	{
+		newTable.addColumn(AppConfig::excursionTableConfig[i], AppConfig::excursionTableConfig[i + 1]);
+	}
+
 	AppConfig::mainDB.save();
 }
 
@@ -48,7 +65,7 @@ Vector<User> UserRepository::mapToUsers(const Vector<String>& rows) {
 	for (unsigned int i = 0; i < rowsSize; i++)
 	{
 		Vector<String> data = rows[i].split(AppConfig::fileDelimiter);
-		res.pushBack(User{ data[0], data[1], data[2] });
+		res.pushBack(User{ data[0], data[1], data[2], true });
 	}
 
 	return res;

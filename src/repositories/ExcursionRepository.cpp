@@ -5,7 +5,9 @@
 ExcursionRepository::ExcursionRepository(const User& user) : tableOwner(user) {}
 
 Excursion ExcursionRepository::getExcursion(const String& destination) {
-	return this->mapToExcursions(AppConfig::mainDB.selectFromTable({ "destination", destination, this->tableOwner.getUsername() }))[0];
+	Vector<Excursion> res = this->mapToExcursions(AppConfig::mainDB.selectFromTable({ "destination", destination, this->tableOwner.getUsername() }));
+
+	return res.getSize() > 0 ? res[0] : Excursion{};
 }
 
 Vector<Excursion> ExcursionRepository::getAllExcursions() {
