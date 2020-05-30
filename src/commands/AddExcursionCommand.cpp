@@ -103,8 +103,14 @@ void AddExcursionCommand::execute(User& loggedIn, Vector<String>& keywords) cons
 		return;
 	}
 
-	if (!DestinationRepository::getDestination(newExcursion.getDestination()).getDestination().getLength()) {
+	Destination dest = DestinationRepository::getDestination(newExcursion.getDestination());
+
+	if (!dest.getDestination().getLength()) {
 		DestinationRepository::insertDestination(Destination{ newExcursion.getDestination(), {loggedIn} });
+	}
+	else {
+		dest.addUser(loggedIn);
+		DestinationRepository::updateDestination(dest);
 	}
 
 	repo.insertExcursion(newExcursion);
