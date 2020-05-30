@@ -44,7 +44,7 @@ void DestinationRepository::updateDestination(const Destination& destination) {
 
 	AppConfig::mainDB.updateTableEntry({
 		AppConfig::destinationsTable,
-		"username", destination.getDestination(),
+		"destination", destination.getDestination(),
 		"users", String::join(usernames, AppConfig::vectorValuesDelimiter)
 	});
 

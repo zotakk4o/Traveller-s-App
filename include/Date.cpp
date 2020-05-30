@@ -68,3 +68,23 @@ bool Date::isValid(unsigned short day, unsigned short month, unsigned short year
 bool Date::isDateValid() const {
 	return this->isValid(this->day, this->month, this->year);
 }
+
+bool Date::operator>(const Date& other) const {
+	if (this->year > other.year) {
+		return true;
+	}
+
+	if (other.year > this->year) {
+		return false;
+	}
+
+	if (this->month > other.month) {
+		return true;
+	}
+
+	if (other.month > this->month) {
+		return false;
+	}
+
+	return this->day > other.day;
+}

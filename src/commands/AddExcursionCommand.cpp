@@ -65,7 +65,7 @@ void AddExcursionCommand::execute(User& loggedIn, Vector<String>& keywords) cons
 				data[currCommandIndex] = currCommand;
 			}
 			
-			if (currCommandIndex == 3 && String::isNumeric(currCommand) == -1) {
+			if (currCommandIndex == 3 && String::isNumeric(currCommand) != 0) {
 				throw AppErrors::invalidGradeError;
 			}
 

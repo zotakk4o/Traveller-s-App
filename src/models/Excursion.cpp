@@ -12,7 +12,7 @@ Excursion::Excursion(const String& destination, const Date& firstDate, const Dat
 		throw AppErrors::invalidDestinationError;
 	}
 
-	if (firstDate.toString() > secondDate.toString()) {
+	if (firstDate > secondDate) {
 		throw AppErrors::invalidDatePeriod;
 	}
 
