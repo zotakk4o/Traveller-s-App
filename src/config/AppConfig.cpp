@@ -3,7 +3,7 @@
 #include<conio.h>
 #include "../commands/AddExcursionCommand.h"
 #include "../commands/AddFriendCommand.h"
-#include "../commands/GetExcursionGradeCommand.h"
+#include "../commands/GetDestinationGradeCommand.h"
 #include "../commands/GetFriendsExcursionsCommand.h"
 #include "../commands/LoginCommand.h"
 #include "../commands/RegisterCommand.h"
@@ -61,7 +61,8 @@ const Vector<AppCommandParameters*> AppConfig::appCommandsParameters{
 	new AddFriendCommand(),
 	new AddExcursionCommand(),
 	new RemoveFriendCommand(),
-	new RemoveExcursionCommand()
+	new RemoveExcursionCommand(),
+	new GetDestinationGradeCommand()
 };
 
 bool AppConfig::isTextValid(const String& text, const Vector<String>& allowedSpecialSymbols, const Vector<String>& userBannedStrings) {
