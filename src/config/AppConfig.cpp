@@ -10,6 +10,7 @@
 #include "../commands/RemoveExcursionCommand.h"
 #include "../commands/RemoveFriendCommand.h"
 #include "../commands/AppExitCommand.h"
+#include "../commands/AppHelpCommand.h"
 
 const String AppConfig::cancelCommand = "cancel";
 
@@ -54,6 +55,7 @@ const LoginCommand* AppConfig::loginCommand = new LoginCommand();
 
 const Vector<AppCommand*> AppConfig::appCommands{
 	new AppExitCommand(),
+	new AppHelpCommand(),
 	new RegisterCommand()
 };
 

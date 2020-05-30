@@ -25,6 +25,7 @@
     <ClCompile Include="src\commands\AddExcursionCommand.cpp" />
     <ClCompile Include="src\commands\AddFriendCommand.cpp" />
     <ClCompile Include="src\commands\AppExitCommand.cpp" />
+    <ClCompile Include="src\commands\AppHelpCommand.cpp" />
     <ClCompile Include="src\commands\BaseClasses\AppCommand.cpp" />
     <ClCompile Include="src\commands\BaseClasses\AppCommandParameters.cpp" />
     <ClCompile Include="src\commands\BaseClasses\AppCommandValidator.cpp" />
@@ -106,6 +107,7 @@
     <ClInclude Include="src\commands\AddExcursionCommand.h" />
     <ClInclude Include="src\commands\AddFriendCommand.h" />
     <ClInclude Include="src\commands\AppExitCommand.h" />
+    <ClInclude Include="src\commands\AppHelpCommand.h" />
     <ClInclude Include="src\commands\BaseClasses\AppCommand.h" />
     <ClInclude Include="src\commands\BaseClasses\AppCommandParameters.h" />
     <ClInclude Include="src\commands\BaseClasses\AppCommandValidator.h" />
