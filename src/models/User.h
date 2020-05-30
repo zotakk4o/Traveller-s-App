@@ -24,6 +24,7 @@ class User {
 		User& operator=(const User&);
 
 		void addExcursion(const Excursion&);
+		void setExcursions(const Vector<Excursion>&);
 		const Excursion& getExcursion(const String&) const;
 
 		const String& getUsername() const;

@@ -32,7 +32,7 @@
     <ClCompile Include="src\commands\GetFriendsExcursionsCommand.cpp" />
     <ClCompile Include="src\commands\LoginCommand.cpp" />
     <ClCompile Include="src\commands\RegisterCommand.cpp" />
-    <ClCompile Include="src\commands\RemoveExcursion.cpp" />
+    <ClCompile Include="src\commands\RemoveExcursionCommand.cpp" />
     <ClCompile Include="src\commands\RemoveFriendCommand.cpp" />
     <ClCompile Include="src\config\AppConfig.cpp" />
     <ClCompile Include="src\config\AppErrors.cpp" />
@@ -113,7 +113,7 @@
     <ClInclude Include="src\commands\GetFriendsExcursionsCommand.h" />
     <ClInclude Include="src\commands\LoginCommand.h" />
     <ClInclude Include="src\commands\RegisterCommand.h" />
-    <ClInclude Include="src\commands\RemoveExcursion.h" />
+    <ClInclude Include="src\commands\RemoveExcursionCommand.h" />
     <ClInclude Include="src\commands\RemoveFriendCommand.h" />
     <ClInclude Include="src\config\AppConfig.h" />
     <ClInclude Include="src\config\AppErrors.h" />

@@ -65,7 +65,9 @@ Vector<User> UserRepository::mapToUsers(const Vector<String>& rows) {
 	for (unsigned int i = 0; i < rowsSize; i++)
 	{
 		Vector<String> data = rows[i].split(AppConfig::fileDelimiter);
-		res.pushBack(User{ data[0], data[1], data[2], true });
+		User curr{ data[0], data[1], data[2], true };
+		curr.setExcursions(UserRepository::getUserExcursions(curr));
+		res.pushBack(curr);
 	}
 
 	return res;

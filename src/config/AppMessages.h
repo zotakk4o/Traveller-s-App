@@ -13,7 +13,9 @@ class AppMessages {
 		static const String userMissmatchMessage;
 		static const String successfulLoginMessage;
 		static const String successfulRegistrationMessage;
+		static const String successfulAddFriendMessage;
 		static const String exitMessage;
+		static const String friendshipAlreadyExistsMessage;
 };
 
 #endif

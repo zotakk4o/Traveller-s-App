@@ -8,9 +8,8 @@ class AddFriendCommand : public AppCommandParameters {
 		virtual const unsigned short getParametersCount() const;
 	public:
 		virtual ~AddFriendCommand();
-		virtual bool isValid(const Vector<String>&) const;
 		virtual String toString() const;
-		virtual void execute(const Vector<String>&) const;
+		virtual void execute(User&, const Vector<String>&) const;
 };
 
 #endif

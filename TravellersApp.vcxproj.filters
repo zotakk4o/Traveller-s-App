@@ -231,9 +231,6 @@
     <ClCompile Include="src\commands\RegisterCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\commands\RemoveExcursion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\commands\RemoveFriendCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -250,6 +247,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\commands\LoginCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\commands\RemoveExcursionCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -470,9 +470,6 @@
     <ClInclude Include="src\commands\RegisterCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\commands\RemoveExcursion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\commands\RemoveFriendCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -489,6 +486,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\commands\LoginCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\commands\RemoveExcursionCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

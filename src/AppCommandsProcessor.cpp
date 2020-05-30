@@ -40,7 +40,7 @@ bool AppCommandsProcessor::parseAppCommand(const String& command, User& loggedIn
 		}
 	}
 
-	if (keywords.getSize() < 2 && !loggedIn.getUsername().getLength()) {
+	if (keywords.getSize() < 2 || !loggedIn.getUsername().getLength()) {
 		return false;
 	}
 
@@ -48,7 +48,7 @@ bool AppCommandsProcessor::parseAppCommand(const String& command, User& loggedIn
 	for (unsigned int i = 0; i < appCommandsParametersSize; i++) {
 		Vector<String> parameters = keywords.slice(1, keywords.getSize() - 1);
 		if (AppConfig::appCommandsParameters[i]->isValid(keywords)) {
-			AppConfig::appCommandsParameters[i]->execute(parameters);
+			AppConfig::appCommandsParameters[i]->execute(loggedIn, parameters);
 			return true;
 		}
 	}

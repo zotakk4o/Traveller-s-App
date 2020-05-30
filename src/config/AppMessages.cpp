@@ -9,3 +9,5 @@ const String AppMessages::userMissmatchMessage = "Incorrect username or password
 const String AppMessages::successfulLoginMessage = "You have logged in successfully as ";
 const String AppMessages::successfulRegistrationMessage = "Your registration was successful.";
 const String AppMessages::exitMessage = "Exiting the Traveller's App...";
+const String AppMessages::friendshipAlreadyExistsMessage = "You are already friends with that user.";
+const String AppMessages::successfulAddFriendMessage = "You are now friends with ";

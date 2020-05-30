@@ -7,7 +7,7 @@
 #include "../commands/GetFriendsExcursionsCommand.h"
 #include "../commands/LoginCommand.h"
 #include "../commands/RegisterCommand.h"
-#include "../commands/RemoveExcursion.h"
+#include "../commands/RemoveExcursionCommand.h"
 #include "../commands/RemoveFriendCommand.h"
 #include "../commands/AppExitCommand.h"
 
@@ -57,7 +57,9 @@ const Vector<AppCommand*> AppConfig::appCommands{
 	new RegisterCommand()
 };
 
-const Vector<AppCommandParameters*> AppConfig::appCommandsParameters{};
+const Vector<AppCommandParameters*> AppConfig::appCommandsParameters{
+	new AddFriendCommand()
+};
 
 bool AppConfig::isTextValid(const String& text, const Vector<String>& allowedSpecialSymbols, const Vector<String>& userBannedStrings) {
 	if (AppConfig::areBannedFound(text)) {

@@ -17,6 +17,8 @@ class AppErrors {
 		static const String invalidGradeError;
 		static const String invalidCommentError;
 		static const String userAlreadyExists;
+		static const String noUserFoundError;
+		static const String cannotMakeYourselfFriend;
 };
 
 #endif

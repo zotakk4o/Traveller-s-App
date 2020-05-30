@@ -3,14 +3,13 @@
 
 #include "BaseClasses/AppCommandParameters.h"
 
-class RemoveExcursion : public AppCommandParameters {
+class RemoveExcursionCommand : public AppCommandParameters {
 	protected:
 		virtual const unsigned short getParametersCount() const;
 	public:
-		virtual ~RemoveExcursion();
-		virtual bool isValid(const Vector<String>&) const;
+		virtual ~RemoveExcursionCommand();
 		virtual String toString() const;
-		virtual void execute(const Vector<String>&) const;
+		virtual void execute(User&, const Vector<String>&) const;
 };
 
 #endif

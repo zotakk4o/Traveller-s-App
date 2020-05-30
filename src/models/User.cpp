@@ -44,6 +44,10 @@ void User::addExcursion(const Excursion& excursion) {
 	this->excursions.pushBack(excursion);
 }
 
+void User::setExcursions(const Vector<Excursion>& excursions) {
+	this->excursions = excursions;
+}
+
 const String& User::getUsername() const {
 	return this->username;
 }
