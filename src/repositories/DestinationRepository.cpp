@@ -26,38 +26,48 @@ Vector<Destination> DestinationRepository::selectDestinations(const Vector<Strin
 	return DestinationRepository::mapToDestinations(AppConfig::mainDB.selectFromTable(criteria));
 }
 
-void DestinationRepository::insertDestination(const Destination& destination) {
+void DestinationRepository::insertDestination(const Destination& destination, bool shallSave) {
 	Vector<String> usernames = UserRepository::extractUsernames(destination.getUsers());
-	String usernamesString = !usernames.getSize() ? DCPConfig::nullValue : String::join(usernames, AppConfig::vectorValuesDelimiter);
 
 	AppConfig::mainDB.insertRow({
 		AppConfig::destinationsTable, 
 		destination.getDestination(),
-		usernamesString
+		String::join(usernames, AppConfig::vectorValuesDelimiter)
 	});
 
-	AppConfig::mainDB.save();
+	if (shallSave) {
+		AppConfig::mainDB.save();
+	}
 }
 
-void DestinationRepository::updateDestination(const Destination& destination) {
-	Vector<String> usernames = UserRepository::extractUsernames(destination.getUsers());
+void DestinationRepository::updateDestination(const Destination& destination, bool shallSave) {
+	if (!destination.getUsers().getSize()) {
+		DestinationRepository::deleteDestination(destination, shallSave);
+		return;
+	}
 
+	Vector<String> usernames = UserRepository::extractUsernames(destination.getUsers());
+	
 	AppConfig::mainDB.updateTableEntry({
 		AppConfig::destinationsTable,
 		"destination", destination.getDestination(),
 		"users", String::join(usernames, AppConfig::vectorValuesDelimiter)
 	});
 
-	AppConfig::mainDB.save();
+	if (shallSave) {
+		AppConfig::mainDB.save();
+	}
 }
 
-void DestinationRepository::deleteDestination(const Destination& destination) {
+void DestinationRepository::deleteDestination(const Destination& destination, bool shallSave) {
 	AppConfig::mainDB.deleteFromTable({
 		AppConfig::destinationsTable, 
 		"destination", destination.getDestination()
 	});
 
-	AppConfig::mainDB.save();
+	if (shallSave) {
+		AppConfig::mainDB.save();
+	}
 }
 
 Vector<Destination> DestinationRepository::mapToDestinations(const Vector<String>& rows) {
@@ -72,15 +82,9 @@ Vector<Destination> DestinationRepository::mapToDestinations(const Vector<String
 	{
 		Vector<String> data = rows[i].split(AppConfig::fileDelimiter);
 		Vector<String> usernames = data[1].split(AppConfig::vectorValuesDelimiter);
-		Vector<User> users;
-		if (usernames.getSize() == 1 && usernames[0] == DCPConfig::nullValue) {
-			usernames = {};
-		}
-		else {
-			users = UserRepository::selectUsers(
-				AppConfig::mainDB.generateInCriteria("username", usernames)
-			);
-		}
+		Vector<User> users = UserRepository::selectUsers(
+			AppConfig::mainDB.generateInCriteria("username", usernames)
+		);
 
 		res.pushBack({data[0], users});
 	}

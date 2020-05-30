@@ -96,9 +96,8 @@ void AddExcursionCommand::execute(User& loggedIn, Vector<String>& keywords) cons
 	}
 
 	Excursion newExcursion = Excursion(data[0], Date{ data[1] }, Date{ data[2] }, String::toInt(data[3]), data[4], data[5].split(' '));
-	ExcursionRepository repo{ loggedIn };
 
-	if (repo.getExcursion(newExcursion.getDestination()).getDestination().getLength()) {
+	if (loggedIn.getExcursionIndex(newExcursion.getDestination()) != -1) {
 		AppConfig::consoleLogger.log(AppMessages::alreadyRatedMessage);
 		return;
 	}
@@ -106,14 +105,16 @@ void AddExcursionCommand::execute(User& loggedIn, Vector<String>& keywords) cons
 	Destination dest = DestinationRepository::getDestination(newExcursion.getDestination());
 
 	if (!dest.getDestination().getLength()) {
-		DestinationRepository::insertDestination(Destination{ newExcursion.getDestination(), {loggedIn} });
+		DestinationRepository::insertDestination(Destination{ newExcursion.getDestination(), {loggedIn} }, false);
 	}
 	else {
 		dest.addUser(loggedIn);
-		DestinationRepository::updateDestination(dest);
+		DestinationRepository::updateDestination(dest, false);
 	}
 
+	ExcursionRepository repo{ loggedIn };
 	repo.insertExcursion(newExcursion);
+
 	loggedIn.addExcursion(newExcursion);
 
 	AppConfig::consoleLogger.log(AppMessages::successfulAddExcursionMessage + data[0]);

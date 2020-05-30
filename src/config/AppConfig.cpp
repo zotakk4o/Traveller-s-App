@@ -60,7 +60,8 @@ const Vector<AppCommand*> AppConfig::appCommands{
 const Vector<AppCommandParameters*> AppConfig::appCommandsParameters{
 	new AddFriendCommand(),
 	new AddExcursionCommand(),
-	new RemoveFriendCommand()
+	new RemoveFriendCommand(),
+	new RemoveExcursionCommand()
 };
 
 bool AppConfig::isTextValid(const String& text, const Vector<String>& allowedSpecialSymbols, const Vector<String>& userBannedStrings) {

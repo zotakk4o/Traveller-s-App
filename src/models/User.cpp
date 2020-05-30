@@ -36,6 +36,7 @@ User& User::operator=(const User& other) {
 	this->username = other.username;
 	this->email = other.email;
 	this->password = other.password;
+	this->excursions = other.excursions;
 
 	return *this;
 }
@@ -86,18 +87,18 @@ String User::hashPassword(const String& password) const {
 	return String::toString((*(unsigned long long*)password.getConstChar()) >> precision);
 }
 
-const Excursion& User::getExcursion(const String& destination) const {
+int User::getExcursionIndex(const String& destination) const {
 	unsigned int excursionsSize = this->excursions.getSize();
 	for (unsigned i = 0; i < excursionsSize; i++)
 	{
 		if (this->excursions[i].getDestination() == destination) {
-			return this->excursions[i];
+			return i;
 		}
 	}
 
-	throw AppErrors::noDestinationFoundError;
+	return -1;
 }
 
 bool User::operator==(const User& other) {
-	return this->username == other.getUsername();
+	return this->username == other.username;
 }

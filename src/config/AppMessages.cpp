@@ -20,3 +20,4 @@ const String AppMessages::enterPhotosMessage = "Enter the photos you have taken,
 const String AppMessages::successfulAddExcursionMessage = "You have successfully rated your excursion to ";
 const String AppMessages::alreadyRatedMessage = "You have already rated that destination.";
 const String AppMessages::friendshipDoesNotExistMessage = "You are not friends with ";
+const String AppMessages::successfulRemoveExcursionMessage = "You have successfully removed the following destination: ";

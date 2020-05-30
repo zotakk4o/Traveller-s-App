@@ -97,3 +97,7 @@ void Excursion::addPhoto(const String& filename) {
 
 	this->photos.pushBack(filename);
 }
+
+bool Excursion::operator==(const Excursion& other) const {
+	return this->destination == other.destination;
+}

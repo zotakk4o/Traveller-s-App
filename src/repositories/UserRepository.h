@@ -14,8 +14,8 @@ class UserRepository {
 		static Vector<Excursion> getUserExcursions(const User&);
 		static Excursion getUserExcursion(const User&, const String&);
 		static Vector<User> selectUsers(const Vector<String>&);	
-		static void insertUser(const User&);
-		static void deleteUser(const User&);
+		static void insertUser(const User&, bool = true);
+		static void deleteUser(const User&, bool = true);
 };
 
 #endif

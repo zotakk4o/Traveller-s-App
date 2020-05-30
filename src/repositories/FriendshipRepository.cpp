@@ -17,15 +17,17 @@ bool FriendshipRepository::areFriends(const User& first, const User& second) {
 	return FriendshipRepository::selectFriendships(first).indexOf(second) != -1;
 }
 
-void FriendshipRepository::insertFriendship(const User& first, const User& second) {
+void FriendshipRepository::insertFriendship(const User& first, const User& second, bool shallSave) {
 	AppConfig::mainDB.insertRow({
 		AppConfig::friendshipsTable, 
 		first.getUsername(), second.getUsername()
 	});
-	AppConfig::mainDB.save();
+	if (shallSave) {
+		AppConfig::mainDB.save();
+	}
 }
 
-void FriendshipRepository::deleteFriendship(const User& first, const User& second) {
+void FriendshipRepository::deleteFriendship(const User& first, const User& second, bool shallSave) {
 	AppConfig::mainDB.deleteFromTable({
 		AppConfig::friendshipsTable,
 		"first", first.getUsername(),
@@ -38,7 +40,9 @@ void FriendshipRepository::deleteFriendship(const User& first, const User& secon
 		"first", second.getUsername()
 	});
 
-	AppConfig::mainDB.save();
+	if (shallSave) {
+		AppConfig::mainDB.save();
+	}
 }
 
 Vector<User> FriendshipRepository::mapToFriends(const String& currUsername, const Vector<String>& friendships) {

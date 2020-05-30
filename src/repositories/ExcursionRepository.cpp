@@ -19,7 +19,7 @@ Vector<Excursion> ExcursionRepository::selectExcursions(const Vector<String>& cr
 	return this->mapToExcursions(AppConfig::mainDB.selectFromTable({ criteria[0], criteria[1], this->tableOwner.getUsername() }));
 }
 
-void ExcursionRepository::insertExcursion(const Excursion& excursion) {
+void ExcursionRepository::insertExcursion(const Excursion& excursion, bool shallSave) {
 	String photos = String::join(excursion.getPhotos(), AppConfig::vectorValuesDelimiter);
 	if (!photos.getLength()) {
 		photos = DCPConfig::nullValue;
@@ -33,15 +33,19 @@ void ExcursionRepository::insertExcursion(const Excursion& excursion) {
 		excursion.getComment(),
 		photos
 	});
-	AppConfig::mainDB.save();
+	if (shallSave) {
+		AppConfig::mainDB.save();
+	}
 }
 
-void ExcursionRepository::deleteExcursion(const Excursion& excursion) {
+void ExcursionRepository::deleteExcursion(const Excursion& excursion, bool shallSave) {
 	AppConfig::mainDB.deleteFromTable({
 		this->tableOwner.getUsername(),
 		"destination", excursion.getDestination()
 	});
-	AppConfig::mainDB.save();
+	if (shallSave) {
+		AppConfig::mainDB.save();
+	}
 }
 
 Vector<Excursion> ExcursionRepository::mapToExcursions(const Vector<String>& rows) {

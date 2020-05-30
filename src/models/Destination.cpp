@@ -24,3 +24,7 @@ const Vector<User>& Destination::getUsers() const {
 const String& Destination::getDestination() const {
 	return this->destination;
 }
+
+void Destination::removeUser(const User& user) {
+	this->users.removeAtIndex(this->users.indexOf(user));
+}

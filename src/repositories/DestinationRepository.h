@@ -12,9 +12,9 @@ class DestinationRepository {
 		static Vector<Destination> getAllDestinations();
 		static Vector<Destination> selectDestinations(const Vector<String>&);
 		
-		static void insertDestination(const Destination&);
-		static void updateDestination(const Destination&);
-		static void deleteDestination(const Destination&);
+		static void insertDestination(const Destination&, bool = true);
+		static void updateDestination(const Destination&, bool = true);
+		static void deleteDestination(const Destination&, bool = true);
 };
 
 #endif

@@ -5,11 +5,27 @@
 
 User UserRepository::getUser(const String& username) {
 	Vector<User> res = UserRepository::mapToUsers(AppConfig::mainDB.selectFromTable({ "username", username, AppConfig::usersTable }));
-	return res.getSize() > 0 ? res[0] : User{};
+	
+	if (!res.getSize()) {
+		return User{};
+	}
+
+	Vector<Excursion> excursions = UserRepository::getUserExcursions(res[0]);
+	res[0].setExcursions(excursions);
+
+	return res[0];
 }
 
 Vector<User> UserRepository::getAllUsers() {
-	return UserRepository::mapToUsers(AppConfig::mainDB.getTableWithName(AppConfig::usersTable).getTableData());
+	Vector<User> res = UserRepository::mapToUsers(AppConfig::mainDB.getTableWithName(AppConfig::usersTable).getTableData());
+
+	unsigned int resSize = res.getSize();
+	for (unsigned int i = 0; i < resSize; i++)
+	{
+		res[i].setExcursions(UserRepository::getUserExcursions(res[i]));
+	}
+
+	return res;
 }
 
 Vector<Excursion> UserRepository::getUserExcursions(const User& user) {
@@ -26,10 +42,18 @@ Vector<User> UserRepository::selectUsers(const Vector<String>& criteria) {
 	Vector<String> select = criteria;
 	select.pushBack(AppConfig::usersTable);
 
-	return UserRepository::mapToUsers(AppConfig::mainDB.selectFromTable(select));
+	Vector<User> res = UserRepository::mapToUsers(AppConfig::mainDB.selectFromTable(select, "OR"));
+
+	unsigned int resSize = res.getSize();
+	for (unsigned int i = 0; i < resSize; i++)
+	{
+		res[i].setExcursions(UserRepository::getUserExcursions(res[i]));
+	}
+
+	return res;
 }
 
-void UserRepository::insertUser(const User& user) {
+void UserRepository::insertUser(const User& user, bool shallSave) {
 	AppConfig::mainDB.insertRow({ AppConfig::usersTable, user.getUsername(), user.getEmail(), user.getPassword() });
 	AppConfig::mainDB.addTableToData({ 
 		&AppConfig::fileLogger,
@@ -46,12 +70,16 @@ void UserRepository::insertUser(const User& user) {
 		newTable.addColumn(AppConfig::excursionTableConfig[i], AppConfig::excursionTableConfig[i + 1]);
 	}
 
-	AppConfig::mainDB.save();
+	if (shallSave) {
+		AppConfig::mainDB.save();
+	}
 }
 
-void UserRepository::deleteUser(const User& user) {
+void UserRepository::deleteUser(const User& user, bool shallSave) {
 	AppConfig::mainDB.deleteFromTable({ AppConfig::usersTable, "username", user.getUsername() });
-	AppConfig::mainDB.save();
+	if (shallSave) {
+		AppConfig::mainDB.save();
+	}
 }
 
 Vector<User> UserRepository::mapToUsers(const Vector<String>& rows) {

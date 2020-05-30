@@ -15,3 +15,4 @@ const String AppErrors::invalidCommentError = "Error: the comment you wanted to 
 const String AppErrors::userAlreadyExists = "Error: a user with this username already exists!";
 const String AppErrors::noUserFoundError = "Error: no user was found for the useranme you entered!";
 const String AppErrors::cannotMakeYourselfFriend = "Error: cannot make yourself a friend :(";
+const String AppErrors::destinationNotVisitedError = "Error: you haven't visited ";

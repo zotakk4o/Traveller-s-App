@@ -14,6 +14,7 @@ class Destination {
 		Destination& operator=(const Destination&);
 
 		void addUser(const User&);
+		void removeUser(const User&);
 
 		const String& getDestination() const;
 		const Vector<User>& getUsers() const;

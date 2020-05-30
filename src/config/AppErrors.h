@@ -19,6 +19,7 @@ class AppErrors {
 		static const String userAlreadyExists;
 		static const String noUserFoundError;
 		static const String cannotMakeYourselfFriend;
+		static const String destinationNotVisitedError;
 };
 
 #endif

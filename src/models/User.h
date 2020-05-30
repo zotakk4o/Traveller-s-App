@@ -27,7 +27,7 @@ class User {
 
 		void addExcursion(const Excursion&);
 		void setExcursions(const Vector<Excursion>&);
-		const Excursion& getExcursion(const String&) const;
+		int getExcursionIndex(const String&) const;
 
 		const String& getUsername() const;
 		const String& getEmail() const;

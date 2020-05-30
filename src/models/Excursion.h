@@ -20,6 +20,8 @@ class Excursion {
 		Excursion(const String&, const Date&, const Date&, const unsigned short&, const String&, const Vector<String>&);
 		Excursion& operator=(const Excursion&);
 
+		bool operator==(const Excursion&) const;
+
 		void addPhoto(const String&);
 		const String& getDestination() const;
 		const Date& getFirstDate() const;

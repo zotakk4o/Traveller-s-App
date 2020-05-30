@@ -16,8 +16,8 @@ class ExcursionRepository {
 		Vector<Excursion> getAllExcursions();
 
 		Vector<Excursion> selectExcursions(const Vector<String>&);
-		void insertExcursion(const Excursion&);
-		void deleteExcursion(const Excursion&);
+		void insertExcursion(const Excursion&, bool = true);
+		void deleteExcursion(const Excursion&, bool = true);
 };
 
 #endif
