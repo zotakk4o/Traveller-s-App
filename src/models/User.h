@@ -23,6 +23,8 @@ class User {
 		User(const String& username, const String& email, const String& password, bool withoutHashing = false);
 		User& operator=(const User&);
 
+		bool operator==(const User&);
+
 		void addExcursion(const Excursion&);
 		void setExcursions(const Vector<Excursion>&);
 		const Excursion& getExcursion(const String&) const;

@@ -97,3 +97,7 @@ const Excursion& User::getExcursion(const String& destination) const {
 
 	throw AppErrors::noDestinationFoundError;
 }
+
+bool User::operator==(const User& other) {
+	return this->username == other.getUsername();
+}

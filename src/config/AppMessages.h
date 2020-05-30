@@ -21,6 +21,8 @@ class AppMessages {
 		static const String successfulAddFriendMessage;
 		static const String successfulAddExcursionMessage;
 		static const String friendshipAlreadyExistsMessage;
+		static const String friendshipDoesNotExistMessage;
+		static const String successfulRemoveFriendMessage;
 		static const String alreadyRatedMessage;
 		static const String exitMessage;
 		

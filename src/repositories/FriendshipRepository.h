@@ -11,7 +11,7 @@ class FriendshipRepository {
 		static bool areFriends(const User&, const User&);
 		static Vector<User> selectFriendships(const User&);
 		static void insertFriendship(const User&, const User&);
-		static void deleteFriendship(const User&);
+		static void deleteFriendship(const User&, const User&);
 };
 
 #endif

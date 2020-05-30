@@ -14,11 +14,7 @@ Vector<User> FriendshipRepository::selectFriendships(const User& user) {
 }
 
 bool FriendshipRepository::areFriends(const User& first, const User& second) {
-	return AppConfig::mainDB.selectFromTable({ 
-		"first", first.getUsername(),
-		"second", second.getUsername(),
-		AppConfig::friendshipsTable
-		}, "OR").getSize() > 0;
+	return FriendshipRepository::selectFriendships(first).indexOf(second) != -1;
 }
 
 void FriendshipRepository::insertFriendship(const User& first, const User& second) {
@@ -29,12 +25,19 @@ void FriendshipRepository::insertFriendship(const User& first, const User& secon
 	AppConfig::mainDB.save();
 }
 
-void FriendshipRepository::deleteFriendship(const User& user) {
+void FriendshipRepository::deleteFriendship(const User& first, const User& second) {
 	AppConfig::mainDB.deleteFromTable({
 		AppConfig::friendshipsTable,
-		"first", user.getUsername(), 
-		"second", user.getUsername() 
-	}, "OR");
+		"first", first.getUsername(),
+		"second", second.getUsername()
+	});
+
+	AppConfig::mainDB.deleteFromTable({
+		AppConfig::friendshipsTable,
+		"second", first.getUsername(),
+		"first", second.getUsername()
+	});
+
 	AppConfig::mainDB.save();
 }
 
