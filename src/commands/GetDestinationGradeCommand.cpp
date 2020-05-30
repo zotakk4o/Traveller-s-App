@@ -35,7 +35,7 @@ void GetDestinationGradeCommand::execute(User& loggedIn, Vector<String>& paramet
 
 		AppConfig::consoleLogger.log(visitors[i].getUsername() + "->" + visitorsExcursion.getDestination() + ':');
 		AppConfig::consoleLogger.log(String{ "Comment: " } + visitorsExcursion.getComment());
-		AppConfig::consoleLogger.log(String{ "Grade: " } +visitorsExcursion.getGrade());
+		AppConfig::consoleLogger.log(String{ "Grade: " } + String::toString(visitorsExcursion.getGrade()));
 	}
 
 	AppConfig::consoleLogger.log(String{ "Average Grade: " } + String::toString(averageGrade / visitorsSize, 2));

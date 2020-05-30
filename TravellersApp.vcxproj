@@ -28,7 +28,7 @@
     <ClCompile Include="src\commands\BaseClasses\AppCommand.cpp" />
     <ClCompile Include="src\commands\BaseClasses\AppCommandParameters.cpp" />
     <ClCompile Include="src\commands\BaseClasses\AppCommandValidator.cpp" />
-    <ClCompile Include="src\commands\GetExcursionGradeCommand.cpp" />
+    <ClCompile Include="src\commands\GetDestinationGradeCommand.cpp" />
     <ClCompile Include="src\commands\GetFriendsExcursionsCommand.cpp" />
     <ClCompile Include="src\commands\LoginCommand.cpp" />
     <ClCompile Include="src\commands\RegisterCommand.cpp" />
@@ -109,7 +109,7 @@
     <ClInclude Include="src\commands\BaseClasses\AppCommand.h" />
     <ClInclude Include="src\commands\BaseClasses\AppCommandParameters.h" />
     <ClInclude Include="src\commands\BaseClasses\AppCommandValidator.h" />
-    <ClInclude Include="src\commands\GetExcursionGradeCommand.h" />
+    <ClInclude Include="src\commands\GetDestinationGradeCommand.h" />
     <ClInclude Include="src\commands\GetFriendsExcursionsCommand.h" />
     <ClInclude Include="src\commands\LoginCommand.h" />
     <ClInclude Include="src\commands\RegisterCommand.h" />
@@ -184,6 +184,9 @@
     <None Include="db-files\application.db" />
     <None Include="db-files\destinations.db" />
     <None Include="db-files\friendships.db" />
+    <None Include="db-files\gosho.db" />
+    <None Include="db-files\pesho.db" />
+    <None Include="db-files\sasho.db" />
     <None Include="db-files\users.db" />
     <None Include="logs\.gitignore" />
   </ItemGroup>

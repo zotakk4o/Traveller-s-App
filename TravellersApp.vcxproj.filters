@@ -219,9 +219,6 @@
     <ClCompile Include="src\commands\AddFriendCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\commands\GetExcursionGradeCommand.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\commands\GetFriendsExcursionsCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -250,6 +247,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\commands\AddExcursionCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\commands\GetDestinationGradeCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -458,9 +458,6 @@
     <ClInclude Include="src\commands\AddFriendCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\commands\GetExcursionGradeCommand.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\commands\GetFriendsExcursionsCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -491,6 +488,9 @@
     <ClInclude Include="src\commands\AddExcursionCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\commands\GetDestinationGradeCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="logs\.gitignore" />
@@ -498,5 +498,8 @@
     <None Include="db-files\friendships.db" />
     <None Include="db-files\destinations.db" />
     <None Include="db-files\application.db" />
+    <None Include="db-files\sasho.db" />
+    <None Include="db-files\pesho.db" />
+    <None Include="db-files\gosho.db" />
   </ItemGroup>
 </Project>
