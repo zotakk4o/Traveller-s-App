@@ -8,7 +8,8 @@
 class AppCommandParameters : public AppCommandValidator {
 	public:
 		virtual ~AppCommandParameters();
-		virtual void execute(User&, const Vector<String>&) const = 0;
+		virtual bool isValid(const Vector<String>&) const;
+		virtual void execute(User&, Vector<String>&) const = 0;
 };
 
 #endif

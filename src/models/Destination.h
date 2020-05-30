@@ -10,7 +10,7 @@ class Destination {
 		Vector<User> users;
 	public:
 		Destination();
-		Destination(const String&, const Vector<User>& );
+		Destination(const String&, const Vector<User>&);
 		Destination& operator=(const Destination&);
 
 		void addUser(const User&);

@@ -1,5 +1,6 @@
 #include "ExcursionRepository.h"
 #include "../config/AppConfig.h"
+#include "include/DBCommandsProcessor/config/DCPConfig.h"
 #include "include/Date.h"
 
 ExcursionRepository::ExcursionRepository(const User& user) : tableOwner(user) {}
@@ -19,6 +20,10 @@ Vector<Excursion> ExcursionRepository::selectExcursions(const Vector<String>& cr
 }
 
 void ExcursionRepository::insertExcursion(const Excursion& excursion) {
+	String photos = String::join(excursion.getPhotos(), AppConfig::vectorValuesDelimiter);
+	if (!photos.getLength()) {
+		photos = DCPConfig::nullValue;
+	}
 	AppConfig::mainDB.insertRow({ 
 		this->tableOwner.getUsername(), 
 		excursion.getDestination(),
@@ -26,7 +31,7 @@ void ExcursionRepository::insertExcursion(const Excursion& excursion) {
 		excursion.getSecondDate().toString(),
 		String::toString(excursion.getGrade()),
 		excursion.getComment(),
-		String::join(excursion.getPhotos(), AppConfig::vectorValuesDelimiter)
+		photos
 	});
 	AppConfig::mainDB.save();
 }
@@ -50,7 +55,11 @@ Vector<Excursion> ExcursionRepository::mapToExcursions(const Vector<String>& row
 	for (unsigned int i = 0; i < rowsSize; i++)
 	{
 		Vector<String> data = rows[i].split(AppConfig::fileDelimiter);
-		res.pushBack(Excursion{ data[0], Date{data[1]}, Date{data[2]}, (unsigned short)String::toInt(data[3]), data[4], data[5].split(AppConfig::vectorValuesDelimiter) });
+		Vector<String> photos = data[5].split(AppConfig::vectorValuesDelimiter);
+		if (photos.getSize() == 1 && photos[0] == DCPConfig::nullValue) {
+			photos = {};
+		}
+		res.pushBack(Excursion{ data[0], Date{data[1]}, Date{data[2]}, (unsigned short)String::toInt(data[3]), data[4], photos });
 	}
 
 	return res;

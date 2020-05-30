@@ -5,9 +5,8 @@
 #include "AppCommandValidator.h"
 
 class AppCommand : public AppCommandValidator {
-	protected:
-		virtual const unsigned short getParametersCount() const;
 	public:
+		virtual const unsigned short getParametersCount() const;
 		virtual ~AppCommand();
 		virtual void execute() const = 0;
 };

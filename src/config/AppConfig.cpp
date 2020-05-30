@@ -1,7 +1,7 @@
 ﻿#include "AppConfig.h"
 #include <iostream>
 #include<conio.h>
-#include "../commands/AddExcursion.h"
+#include "../commands/AddExcursionCommand.h"
 #include "../commands/AddFriendCommand.h"
 #include "../commands/GetExcursionGradeCommand.h"
 #include "../commands/GetFriendsExcursionsCommand.h"
@@ -58,7 +58,8 @@ const Vector<AppCommand*> AppConfig::appCommands{
 };
 
 const Vector<AppCommandParameters*> AppConfig::appCommandsParameters{
-	new AddFriendCommand()
+	new AddFriendCommand(),
+	new AddExcursionCommand()
 };
 
 bool AppConfig::isTextValid(const String& text, const Vector<String>& allowedSpecialSymbols, const Vector<String>& userBannedStrings) {
@@ -114,9 +115,15 @@ void AppConfig::readPassword(String& command) {
 			break;
 		}
 
-		_putch('*');
-
-		command += character;
+		if (character != '\b') {
+			_putch('*');
+			command += character;
+		}
+		else {
+			if (command.getLength()) {
+				command = command.substring(0, command.getLength() - 1);
+			}	
+		}
 	}
 }
 

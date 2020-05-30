@@ -8,13 +8,15 @@
 AddFriendCommand::~AddFriendCommand() {}
 
 const unsigned short AddFriendCommand::getParametersCount() const {
-	return 2;
+	return 3;
 }
 
 String AddFriendCommand::toString() const {
-	return "addfriend";
+	return "add friend";
 }
-void AddFriendCommand::execute(User& loggedIn, const Vector<String>& parameters) const {
+void AddFriendCommand::execute(User& loggedIn, Vector<String>& parameters) const {
+	parameters = parameters.slice(this->getParametersCount(), parameters.getSize() - 1);
+
 	if (loggedIn.getUsername() == parameters[0]) {
 		throw AppErrors::cannotMakeYourselfFriend;
 	}

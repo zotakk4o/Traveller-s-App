@@ -1,12 +1,12 @@
-#ifndef REMOVEEXCURSIONCOMMAND_H
-#define REMOVEEXCURSIONCOMMAND_H
+#ifndef ADDEXCURSIONCOMMAND_H
+#define ADDEXCURSIONCOMMAND_H
 
 #include "BaseClasses/AppCommandParameters.h"
 
-class RemoveExcursionCommand : public AppCommandParameters {
+class AddExcursionCommand : public AppCommandParameters {
 	public:
 		virtual const unsigned short getParametersCount() const;
-		virtual ~RemoveExcursionCommand();
+		virtual ~AddExcursionCommand();
 		virtual String toString() const;
 		virtual void execute(User&, Vector<String>&) const;
 };

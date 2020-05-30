@@ -1,5 +1,4 @@
 #include "Date.h"
-#include<stdexcept>
 
 const unsigned short Date::minimumYear = 1900;
 const char Date::componentsDelimiter = '.';
@@ -9,7 +8,7 @@ Date::Date() : day(-1), month(-1), year(-1) {}
 
 Date::Date(unsigned short day, unsigned short month, unsigned short year) {
 	if (!Date::isValid(day, month, year)) {
-		throw std::invalid_argument("Error: invalid arguments. Could not create a date from the entered day, month and year.");
+		throw "Error: invalid arguments. Could not create a date from the entered day, month and year.";
 	}
 
 	this->day = day;
@@ -22,7 +21,7 @@ Date::Date(const String& date) {
 	Vector<String> components = date.split(Date::componentsDelimiter);
 
 	if (components.getSize() != 3 || String::isNumeric(components[0]) != 0 || String::isNumeric(components[1]) != 0 || String::isNumeric(components[2]) != 0) {
-		throw std::invalid_argument(invalidDateErr.getConstChar());
+		throw invalidDateErr.getConstChar();
 	}
 	
 	unsigned short day = String::toInt(components[0]);
@@ -31,7 +30,7 @@ Date::Date(const String& date) {
 
 
 	if (!Date::isValid(day, month, year)) {
-		throw std::invalid_argument(invalidDateErr.getConstChar());
+		throw invalidDateErr.getConstChar();
 	}
 
 	this->day = day;

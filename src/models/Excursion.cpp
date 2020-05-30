@@ -2,10 +2,13 @@
 #include "../config/AppConfig.h"
 #include "../config/AppErrors.h"
 
+const unsigned short Excursion::minimumDestinationLength = 2;
+const unsigned short Excursion::minimumCommentLength = 5;
+
 Excursion::Excursion() : grade(-1) {}
 
 Excursion::Excursion(const String& destination, const Date& firstDate, const Date& secondDate, const unsigned short& grade, const String& comment, const Vector<String>& photos) {
-	if (!AppConfig::isTextValid(destination, { ' ', ',' })) {
+	if (!AppConfig::isTextValid(destination, { ' ', ',' }) || destination.getLength() < Excursion::minimumDestinationLength) {
 		throw AppErrors::invalidDestinationError;
 	}
 
@@ -17,7 +20,7 @@ Excursion::Excursion(const String& destination, const Date& firstDate, const Dat
 		throw AppErrors::invalidGradeError;
 	}
 
-	if (AppConfig::areBannedFound(comment)) {
+	if (AppConfig::areBannedFound(comment) || comment.getLength() < Excursion::minimumCommentLength) {
 		throw AppErrors::invalidCommentError;
 	}
 
@@ -88,7 +91,7 @@ void Excursion::addPhoto(const String& filename) {
 		throw AppErrors::invalidImageExtensionError;
 	}
 
-	if (!AppConfig::isTextValid(filename, { '_', '-' })) {
+	if (!AppConfig::isTextValid(filename, { '_', '-','.' })) {
 		throw AppErrors::invalidImageNameError;
 	}
 

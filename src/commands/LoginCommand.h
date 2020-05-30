@@ -5,9 +5,8 @@
 #include "../models/User.h"
 
 class LoginCommand : public AppCommandValidator {
-	protected:
-		virtual const unsigned short getParametersCount() const;
 	public:
+		virtual const unsigned short getParametersCount() const;
 		virtual ~LoginCommand();
 		virtual String toString() const;
 		User execute() const;

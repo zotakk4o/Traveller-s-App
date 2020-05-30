@@ -6,6 +6,8 @@
 
 class Excursion {
 	private:
+		static const unsigned short minimumDestinationLength;
+		static const unsigned short minimumCommentLength;
 		String destination;
 		Date firstDate;
 		Date secondDate;

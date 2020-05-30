@@ -1,5 +1,6 @@
 #include "DestinationRepository.h"
 #include "../config/AppConfig.h"
+#include "include/DBCommandsProcessor/config/DCPConfig.h"
 #include "UserRepository.h"
 
 
@@ -27,10 +28,12 @@ Vector<Destination> DestinationRepository::selectDestinations(const Vector<Strin
 
 void DestinationRepository::insertDestination(const Destination& destination) {
 	Vector<String> usernames = UserRepository::extractUsernames(destination.getUsers());
+	String usernamesString = !usernames.getSize() ? DCPConfig::nullValue : String::join(usernames, AppConfig::vectorValuesDelimiter);
 
 	AppConfig::mainDB.insertRow({
 		AppConfig::destinationsTable, 
-		destination.getDestination(), String::join(usernames, AppConfig::vectorValuesDelimiter)
+		destination.getDestination(),
+		usernamesString
 	});
 
 	AppConfig::mainDB.save();
@@ -68,9 +71,16 @@ Vector<Destination> DestinationRepository::mapToDestinations(const Vector<String
 	for (unsigned int i = 0; i < rowsSize; i++)
 	{
 		Vector<String> data = rows[i].split(AppConfig::fileDelimiter);
-		Vector<User> users = UserRepository::selectUsers(
-			AppConfig::mainDB.generateInCriteria("username", data[1].split(AppConfig::vectorValuesDelimiter))
-		);
+		Vector<String> usernames = data[1].split(AppConfig::vectorValuesDelimiter);
+		Vector<User> users;
+		if (usernames.getSize() == 1 && usernames[0] == DCPConfig::nullValue) {
+			usernames = {};
+		}
+		else {
+			users = UserRepository::selectUsers(
+				AppConfig::mainDB.generateInCriteria("username", usernames)
+			);
+		}
 
 		res.pushBack({data[0], users});
 	}

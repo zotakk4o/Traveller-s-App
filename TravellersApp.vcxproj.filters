@@ -216,9 +216,6 @@
     <ClCompile Include="src\commands\BaseClasses\AppCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\commands\AddExcursion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\commands\AddFriendCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -250,6 +247,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\commands\RemoveExcursionCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\commands\AddExcursionCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -455,9 +455,6 @@
     <ClInclude Include="src\commands\BaseClasses\AppCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\commands\AddExcursion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\commands\AddFriendCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -489,6 +486,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\commands\RemoveExcursionCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\commands\AddExcursionCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

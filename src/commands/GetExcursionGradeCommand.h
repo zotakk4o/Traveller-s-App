@@ -4,12 +4,11 @@
 #include "BaseClasses/AppCommandParameters.h"
 
 class GetExcursionGradeCommand : public AppCommandParameters {
-	protected:
-		virtual const unsigned short getParametersCount() const;
 	public:
+		virtual const unsigned short getParametersCount() const;
 		virtual ~GetExcursionGradeCommand();
 		virtual String toString() const;
-		virtual void execute(User&, const Vector<String>&) const;
+		virtual void execute(User&, Vector<String>&) const;
 };
 
 #endif

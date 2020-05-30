@@ -6,9 +6,8 @@
 
 class AppCommandValidator
 {
-	protected:
-		virtual const unsigned short getParametersCount() const = 0;
 	public:
+		virtual const unsigned short getParametersCount() const = 0;
 		virtual ~AppCommandValidator();
 		virtual bool isValid(const Vector<String>&) const;
 		virtual String toString() const = 0;

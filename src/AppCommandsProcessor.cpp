@@ -46,9 +46,8 @@ bool AppCommandsProcessor::parseAppCommand(const String& command, User& loggedIn
 
 	unsigned int appCommandsParametersSize = AppConfig::appCommandsParameters.getSize();
 	for (unsigned int i = 0; i < appCommandsParametersSize; i++) {
-		Vector<String> parameters = keywords.slice(1, keywords.getSize() - 1);
 		if (AppConfig::appCommandsParameters[i]->isValid(keywords)) {
-			AppConfig::appCommandsParameters[i]->execute(loggedIn, parameters);
+			AppConfig::appCommandsParameters[i]->execute(loggedIn, keywords);
 			return true;
 		}
 	}

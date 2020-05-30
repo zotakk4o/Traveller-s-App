@@ -22,7 +22,7 @@
     <ClCompile Include="include\Date.cpp" />
     <ClCompile Include="include\Pagination\commands\BaseClasses\PaginationCommand.cpp" />
     <ClCompile Include="src\AppCommandsProcessor.cpp" />
-    <ClCompile Include="src\commands\AddExcursion.cpp" />
+    <ClCompile Include="src\commands\AddExcursionCommand.cpp" />
     <ClCompile Include="src\commands\AddFriendCommand.cpp" />
     <ClCompile Include="src\commands\AppExitCommand.cpp" />
     <ClCompile Include="src\commands\BaseClasses\AppCommand.cpp" />
@@ -103,7 +103,7 @@
     <ClInclude Include="include\Date.h" />
     <ClInclude Include="include\Pagination\commands\BaseClasses\PaginationCommand.h" />
     <ClInclude Include="src\AppCommandsProcessor.h" />
-    <ClInclude Include="src\commands\AddExcursion.h" />
+    <ClInclude Include="src\commands\AddExcursionCommand.h" />
     <ClInclude Include="src\commands\AddFriendCommand.h" />
     <ClInclude Include="src\commands\AppExitCommand.h" />
     <ClInclude Include="src\commands\BaseClasses\AppCommand.h" />
