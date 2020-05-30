@@ -14,7 +14,7 @@ const unsigned short GetDestinationGradeCommand::getParametersCount() const {
 }
 
 String GetDestinationGradeCommand::toString() const {
-	return "get excursion grade";
+	return "get destination grade";
 }
 
 void GetDestinationGradeCommand::execute(User& loggedIn, Vector<String>& parameters) const {
