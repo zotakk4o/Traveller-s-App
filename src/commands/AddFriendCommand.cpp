@@ -15,7 +15,7 @@ String AddFriendCommand::toString() const {
 	return "add friend";
 }
 void AddFriendCommand::execute(User& loggedIn, Vector<String>& parameters) const {
-	parameters = parameters.slice(this->getParametersCount(), parameters.getSize() - 1);
+	parameters = parameters.slice(this->toString().split(' ').getSize(), parameters.getSize() - 1);
 
 	if (loggedIn.getUsername() == parameters[0]) {
 		throw AppErrors::cannotMakeYourselfFriend;
